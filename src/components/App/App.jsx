@@ -25,6 +25,14 @@ import Progression from '../Progression/Progression';
 // HTML Topics
 import Intro from '../LearnHTML/Topics/Intro/Intro';
 import BasicElements from '../LearnHTML/Topics/BasicElements/BasicElements';
+import Lists from '../LearnHTML/Topics/Lists/Lists';
+import Images from '../LearnHTML/Topics/Images/Images';
+import Links from '../LearnHTML/Topics/Links/Links';
+import Styles from '../LearnHTML/Topics/Styles/Styles';
+import Forms from '../LearnHTML/Topics/Forms/Forms';
+import Buttons from '../LearnHTML/Topics/Buttons/Buttons';
+import Tables from '../LearnHTML/Topics/Tables/Tables';
+import FinalTest from '../LearnHTML/Topics/FinalTest/FinalTest';
 
 import './App.css';
 
@@ -67,6 +75,7 @@ function App() {
           >
             <Progression />
           </Route>
+          {/* --------------------- TOPICS FOR HTML COURSE ------------------- */}
           <Route
             exact
             path="/intro"
@@ -80,6 +89,61 @@ function App() {
             <BasicElements />
           </Route>
 
+          <Route
+            exact
+            path="/lists"
+          >
+            <Lists />
+          </Route>
+                    
+          <Route
+            exact
+            path="/images"
+          >
+            <Images />
+          </Route>
+                    
+          <Route
+            exact
+            path="/links"
+          >
+            <Links />
+          </Route>
+                    
+          <Route
+            exact
+            path="/styles"
+          >
+            <Styles />
+          </Route>
+                    
+          <Route
+            exact
+            path="/forms"
+          >
+            <Forms />
+          </Route>
+                    
+          <Route
+            exact
+            path="/buttons"
+          >
+            <Buttons />
+          </Route>
+                    
+          <Route
+            exact
+            path="/tables"
+          >
+            <Tables />
+          </Route>
+                    
+          <Route
+            exact
+            path="/final-test"
+          >
+            <FinalTest />
+          </Route>
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
