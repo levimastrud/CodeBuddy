@@ -22,7 +22,7 @@ function Progression() {
   }, [dispatch]);
   return (
     <div className="container">
-      <h1>Learn HTML: {progress}% Complete</h1>
+      <h1>Learn HTML: {progress < 0 ? 0: progress}% Complete</h1>
       <progress max={100} value = {progress}></progress>
       <Link to='/intro'><h1> Intro </h1></Link>
       {progress > 0 ? <Link to='/basic-elements'><h1 className='ready'> Basic Elements </h1></Link> : <h1 className='not-ready'> Basic Elements </h1>}

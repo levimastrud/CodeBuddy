@@ -3,12 +3,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-function Quiz() {
+function FinalTest() {
     const user = useSelector((store) => store.user);
     const history = useHistory()
     return (
         <div className="container">
-            <h1>Quiz</h1>
+            <h1>Final Test</h1>
             <p>“Yes?” I say. “Timothy?”“You’re a dufus.”“Oh leave Patrick alone,” Evelyn says. “He’s the boy next door.That’s Patrick. You’re not a dufus, are you, honey?” Evelyn is on Marsand I move toward the bar to make myself another drink.“Boy next door.” Tim smirks and nods, then reverses his expressionand hostilely asks Evelyn again if she has a lint brush.Evelyn finishes opening the Japanese beer bottles and tellsCourtney to fetch Stash and Vanden. “We have to eat this now or elsewe’re going to be poisoned,” she murmurs, slowly moving her head,taking in the kitchen, making sure she hasn’t forgotten anything.“If I can tear them away from the latest Megadeth video,” Courtneysays before exiting.“I have to talk to you,” Evelyn says.“What about?” I come up to her.“No,” she says and then pointing at Tim, “to Price.”Tim still glares at her fiercely. I say nothing and stare at Tim’sdrink.“Be a hon,” she tells me, “and place the sushi on the table. Tempurais in the microwave and the sake is just about done boiling.…” Hervoice trails off as she leads Price out of the kitchen.I am wondering where Evelyn got the sushi—the tuna, yellowtail,mackerel, shrimp, eel, even
                 bonito
                 , all seem so fresh and there arepiles of wasabi and clumps of ginger placed strategically around theWilton platter—but I also like the idea that I
@@ -28,7 +28,7 @@ function Quiz() {
                 a riot,” and then asks worriedly, “Tempura?”</p>
             <button onClick={() => {
                  // Stops user from backwards progression
-                user.recent_topic_completed > 2 ? '' : axios.post('/api/user/next-topic', {username: user.username, nextTopic: 2})
+                user.recent_topic_completed > 10 ? '' : axios.post('/api/user/next-topic', {username: user.username, nextTopic: 10})
                 history.push('/progression')
                 }
             }
@@ -37,4 +37,4 @@ function Quiz() {
     );
 }
 
-export default Quiz;
+export default FinalTest;
