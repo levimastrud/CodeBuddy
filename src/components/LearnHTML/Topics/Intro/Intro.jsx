@@ -27,10 +27,7 @@ function Intro() {
                 are
                 a riot,” and then asks worriedly, “Tempura?”</p>
             <button onClick={() => {
-                console.log('finished');
-
                 // Stops user from backwards progression
-
                 user.recent_topic_completed > 1 ? '' : axios.post('/api/user/next-topic', {username: user.username, nextTopic: 1})
                 history.push('/progression')
                 }

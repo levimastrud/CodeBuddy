@@ -27,8 +27,8 @@ function BasicElements() {
                 are
                 a riot,” and then asks worriedly, “Tempura?”</p>
             <button onClick={() => {
-                console.log('finished');
-                axios.post('/api/user/next-topic', {username: user.username, nextTopic: 2})
+                 // Stops user from backwards progression
+                user.recent_topic_completed > 2 ? '' : axios.post('/api/user/next-topic', {username: user.username, nextTopic: 2})
                 history.push('/progression')
                 }
             }

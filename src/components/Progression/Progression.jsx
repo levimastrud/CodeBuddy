@@ -25,7 +25,7 @@ function Progression() {
       <h1>Learn HTML: {progress}% Complete</h1>
       <progress max={100} value = {progress}></progress>
       <Link to='/intro'><h1> Intro </h1></Link>
-      <Link to='/basic-elements'><h1> Basic Elements </h1></Link>
+      {progress > 0 ? <Link to='/basic-elements'><h1> Basic Elements </h1></Link> : <h1> Basic Elements </h1>}
       <h1> Lists </h1>
       <h1> Images </h1>
       <h1> Links </h1>
