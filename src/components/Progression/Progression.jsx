@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   HashRouter as Router,
   Redirect,
@@ -11,8 +11,15 @@ import {
 import Intro from '../LearnHTML/Topics/Intro/Intro';
 
 function Progression() {
+  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   let progress = user.recent_topic_completed * 10;
+
+  // Fetches updated user information on page load
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_USER' });
+  }, [dispatch]);
   return (
     <div className="container">
       <h1>Learn HTML: {progress}% Complete</h1>

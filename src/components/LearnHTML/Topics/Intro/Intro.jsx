@@ -1,10 +1,6 @@
 import axios from 'axios';
 import React from 'react';
 import { useSelector } from 'react-redux';
-
-import {
-    Link,
-} from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
 function Intro() {
@@ -32,6 +28,9 @@ function Intro() {
                 a riot,” and then asks worriedly, “Tempura?”</p>
             <button onClick={() => {
                 console.log('finished');
+
+                // Stops user from backwards progression
+
                 user.recent_topic_completed > 1 ? '' : axios.post('/api/user/next-topic', {username: user.username, nextTopic: 1})
                 history.push('/progression')
                 }

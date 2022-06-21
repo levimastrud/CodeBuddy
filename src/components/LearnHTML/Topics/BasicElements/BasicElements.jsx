@@ -1,10 +1,6 @@
 import axios from 'axios';
 import React from 'react';
 import { useSelector } from 'react-redux';
-
-import {
-    Link,
-} from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
 function BasicElements() {
