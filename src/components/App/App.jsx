@@ -21,7 +21,10 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import CoursesPage from '../CoursesPage/CoursesPage';
 import Progression from '../Progression/Progression';
+
+// HTML Topics
 import Intro from '../LearnHTML/Topics/Intro/Intro';
+import BasicElements from '../LearnHTML/Topics/BasicElements/BasicElements';
 
 import './App.css';
 
@@ -69,6 +72,12 @@ function App() {
             path="/intro"
           >
             <Intro />
+          </Route>
+          <Route
+            exact
+            path="/basic-elements"
+          >
+            <BasicElements />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
