@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 function Lesson(props) {
 
-    const history = useHistory();
     const dispatch = useDispatch();
+
+    // Local state used only to toggle hint
+
     const [toggle, setToggle] = useState('hide-hint');
 
     // Supports tabbing inside code block
@@ -30,20 +31,22 @@ function Lesson(props) {
         }
     }
 
+    // Reducers
+
     const codeBlock = useSelector((store) => store.codeBlock);
-    let answer = useSelector((store) => store.answer);
+    const answer = useSelector((store) => store.answer);
+
+    // All data that needs to be brought in through the
+    // topic components
 
     let defaultAnswer = props.defaultAnswer;
-
     let viewSolution = props.viewSolution;
-
     let lesson = props.lesson;
-
     let hint = props.hint;
-
     let task = props.task;
-
     let checkAnswer = props.checkAnswer;
+
+    // useEffect will fetch most up to date answer and code block on load
 
     useEffect(() => {
         dispatch({ type: 'GET_CODE_BLOCK' });
@@ -55,11 +58,8 @@ function Lesson(props) {
             <div className="lesson">
                 <h2>{lesson}</h2>
             </div>
-            <div className="blue">
-                <div className="wrapper">
-                    <h1>{answer}</h1>
+            <div className="code">
                     <h2 className="task">{task}</h2>
-                </div>
                 <textarea value={codeBlock} onChange={(e) => {
                     dispatch({ type: 'SET_CODE_BLOCK', payload: e.target.value });
                 }}></textarea>
@@ -67,9 +67,13 @@ function Lesson(props) {
                 <div className="pageButtons">
                     <button onClick={() => toggle ? setToggle('') : setToggle('hide-hint')}>Hint</button>
                     <button onClick={() => dispatch({ type: 'SET_CODE_BLOCK', payload: viewSolution })}>View Solution</button>
-                    <button onClick={() => dispatch({ type: 'SET_CODE_BLOCK', payload: defaultAnswer })
+                    <button onClick={() => {
+                        dispatch({ type: 'SET_CODE_BLOCK', payload: defaultAnswer })
+                        dispatch({ type: 'SET_ANSWER', payload: '' })
+                    }
                     }>Reset</button>
                     <button onClick={() => checkAnswer(codeBlock)}>Submit</button>
+                    <h1>{answer}</h1>
                 </div>
             </div>
             <div className="preview">

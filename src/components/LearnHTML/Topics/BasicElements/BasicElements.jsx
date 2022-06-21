@@ -10,17 +10,10 @@ function BasicElements() {
     const history = useHistory()
     const dispatch = useDispatch();
 
-    const [answerResult, setAnswerResult] = useState('');
-    const [toggle, setToggle] = useState('hide-hint');
-    const [toggleWin, setToggleWin] = useState('hide-hint');
-
-
     const checkAnswer = (codeBlock) => {
 
         const parser = new DOMParser();
-
         const parsed = parser.parseFromString(codeBlock, "text/html");
-
         let parsedExpanded = parsed.lastChild.lastChild.childNodes;
 
         try {
@@ -74,8 +67,9 @@ function BasicElements() {
     useEffect(() => {
         dispatch({ type: 'SET_CODE_BLOCK', payload: defaultAnswer });
     }, [dispatch]);
+
     return (
-        <div className="container">
+        <div className='topic'>
             <h1>Basic Elements</h1>
             <Lesson
                 defaultAnswer={defaultAnswer}
@@ -85,13 +79,13 @@ function BasicElements() {
                 task={task}
                 checkAnswer={checkAnswer}
             />
-            <button onClick={() => {
+            <button className='topic-name' onClick={() => {
                 // Stops user from backwards progression
                 user.recent_topic_completed > 2 ? '' : axios.post('/api/user/next-topic', { username: user.username, nextTopic: 2 })
                 history.push('/progression')
             }
             }
-            >Finish Topic</button>
+            > Next </button>
         </div >
     );
 }
