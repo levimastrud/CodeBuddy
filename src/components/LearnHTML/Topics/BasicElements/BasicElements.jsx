@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 
 function BasicElements() {
     const user = useSelector((store) => store.user);
+    const answer = useSelector((store) => store.answer);
     const history = useHistory()
     const dispatch = useDispatch();
 
@@ -15,6 +16,9 @@ function BasicElements() {
         const parser = new DOMParser();
         const parsed = parser.parseFromString(codeBlock, "text/html");
         let parsedExpanded = parsed.lastChild.lastChild.childNodes;
+
+        // Determines whether or not codeBlock is correct.
+        // This will need to be modified for every different topic.
 
         try {
             if (parsedExpanded.length < 2) {
@@ -29,6 +33,17 @@ function BasicElements() {
             dispatch({ type: 'SET_ANSWER', payload: 'Incorrect' });
         }
     }
+
+    let lesson = `
+    A header tag looks like this <h1> Header! </h1>.
+    Header tags are used to title blocks of text.
+    There are six sizes of header tags, which can be used to 
+    communicate that some information is more important than other information.
+    In code it looks like this: <h1> Header One </h1> <h2> Header Two </h2> <h3> 
+    Header Three </h3> <h4> Header Four </h4> <h5> Header Five </h5> <h6> Header Six </h6>
+    `;
+
+    let task = `Add a <header> element between the <body> tags containing an <h1> element with your favorite food!`;
 
     let defaultAnswer = `
     <html>
@@ -51,18 +66,8 @@ function BasicElements() {
     </html>
     `;
 
-    let lesson = `
-    A header tag looks like this <h1> Header! </h1>.
-    Header tags are used to title blocks of text.
-    There are six sizes of header tags, which can be used to 
-    communicate that some information is more important than other information.
-    In code it looks like this: <h1> Header One </h1> <h2> Header Two </h2> <h3> 
-    Header Three </h3> <h4> Header Four </h4> <h5> Header Five </h5> <h6> Header Six </h6>
-    `;
+    let hint = `Does <header> have a closing and opening tag?`
 
-    let hint = `hint`
-
-    let task = `Add a header element between the body tags containing an h1 element with your favorite food!`;
 
     useEffect(() => {
         dispatch({ type: 'SET_CODE_BLOCK', payload: defaultAnswer });
@@ -79,13 +84,16 @@ function BasicElements() {
                 task={task}
                 checkAnswer={checkAnswer}
             />
-            <button className='topic-name' onClick={() => {
+            <button onClick={() => {
                 // Stops user from backwards progression
-                user.recent_topic_completed > 2 ? '' : axios.post('/api/user/next-topic', { username: user.username, nextTopic: 2 })
                 history.push('/progression')
             }
             }
-            > Next </button>
+            > Back </button>
+            <button onClick={() => {
+                user.recent_topic_completed > 2 ? '' : axios.post('/api/user/next-topic', { username: user.username, nextTopic: 2 })
+                answer === 'Correct' ? console.log('go to next task') : console.log('stay here')
+            }}>Next</button>
         </div >
     );
 }
