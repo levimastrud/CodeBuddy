@@ -118,3 +118,11 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+.ready {
+  color: rgb(49, 49, 49);
+}
+
+.not-ready {
+  color: rgb(157, 157, 157);
+}
