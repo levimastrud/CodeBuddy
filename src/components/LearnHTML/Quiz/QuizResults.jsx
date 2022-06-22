@@ -7,7 +7,8 @@ function QuizResults(props) {
     const user = useSelector((store) => store.user);
     const quiz = useSelector((store) => store.quiz);
     const quizTotal = useSelector((store) => store.quizTotal);
-    console.log(quizTotal)
+    console.log('TOPIC', quiz.topic)
+    console.log('TOTAL', quizTotal)
 
     const dispatch = useDispatch();
     const history = useHistory()
@@ -21,7 +22,8 @@ function QuizResults(props) {
             <h1>Score</h1>
             <h1>{quizTotal}</h1>
             <button onClick={() => {
-                dispatch({ type: 'QUIZ_TOTAL'});
+                axios.post('api/user/quiz-total', {quizTotal: quizTotal, topic: quiz.topic, userId: user.id})
+                dispatch({ type: 'CLEAR_QUIZ'});
                 history.push('/progression')
             }}>Next</button>
         </div >

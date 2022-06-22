@@ -62,4 +62,36 @@ router.post('/next-topic', (req, res) => {
     });
 });
 
+router.post('/reset', (req, res) => {
+  const username = req.body.username;
+  let queryText = `UPDATE "user"
+  SET "recent_topic_completed" = 0
+  WHERE "username" = $1;`
+  pool.query(queryText, [username])
+  .then(() => res.sendStatus(201))
+  .catch((err) => {
+    console.log('Error resetting progression', err);
+    res.sendStatus(500);
+  });
+})
+
+router.post('/quiz-total', (req, res) => {
+  const userId = req.body.userId;
+  const quizTotal = req.body.quizTotal;
+  const topic = req.body.topic;
+  console.log('user id', userId, 'quiz total', quizTotal, 'topic', topic)
+  let queryText = `UPDATE "user"
+  SET "elements_results" = $1
+  WHERE id = $2;`
+  pool.query(queryText, [quizTotal, userId])
+  .then(() => {
+    res.sendStatus(201)
+    console.log('sent QUIZ RESULTS')
+  })
+    .catch((err) => {
+      console.log('Error posting results', err);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
