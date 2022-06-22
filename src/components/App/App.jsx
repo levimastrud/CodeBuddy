@@ -34,6 +34,14 @@ import Buttons from '../LearnHTML/Topics/Buttons/Buttons';
 import Tables from '../LearnHTML/Topics/Tables/Tables';
 import FinalTest from '../LearnHTML/Topics/FinalTest/FinalTest';
 
+// Quizzes
+import QuizPageOne from '../LearnHTML/Quiz/QuizPageOne';
+import QuizPageTwo from '../LearnHTML/Quiz/QuizPageTwo';
+import QuizPageThree from '../LearnHTML/Quiz/QuizPageThree';
+import QuizPageFour from '../LearnHTML/Quiz/QuizPageFour';
+import QuizPageFive from '../LearnHTML/Quiz/QuizPageFive';
+import QuizResults from '../LearnHTML/Quiz/QuizResults';
+
 import './App.css';
 
 function App() {
@@ -143,6 +151,48 @@ function App() {
             path="/final-test"
           >
             <FinalTest />
+          </Route>
+
+          <Route
+            exact
+            path="/quiz-page-one"
+          >
+            <QuizPageOne />
+          </Route>
+
+          <Route
+            exact
+            path="/quiz-page-two"
+          >
+            <QuizPageTwo />
+          </Route>
+
+          <Route
+            exact
+            path="/quiz-page-three"
+          >
+            <QuizPageThree />
+          </Route>
+
+          <Route
+            exact
+            path="/quiz-page-four"
+          >
+            <QuizPageFour />
+          </Route>
+
+          <Route
+            exact
+            path="/quiz-page-five"
+          >
+            <QuizPageFive />
+          </Route>
+
+          <Route
+            exact
+            path="/quiz-results"
+          >
+            <QuizResults />
           </Route>
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.

@@ -1,9 +1,9 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Lesson from '../../Lesson/Lesson';
-import { useEffect } from 'react';
+import Quiz from '../../Quiz/QuizPageOne';
 
 function BasicElements() {
     const user = useSelector((store) => store.user);
@@ -32,6 +32,39 @@ function BasicElements() {
         } catch {
             dispatch({ type: 'SET_ANSWER', payload: 'Incorrect' });
         }
+    }
+
+    let quizOptions = {
+        // First Question
+        question1: 'question one',
+        o1: {question: 'option 1', value: 0},
+        o2: {question: 'option 2', value: 0},
+        o3: {question: 'correct option', value: 1},
+        o4: {question: 'option 4', value: 0},
+        // Second Question
+        question2: 'question two',
+        o5: {question: 'correct option', value: 1},
+        o6: {question: 'option 2', value: 0},
+        o7: {question: 'option 3', value: 0},
+        o8: {question: 'option 4', value: 0},
+        // Third Question
+        question3: 'question three',
+        o9: {question: 'option 1', value: 0},
+        o10: {question: 'option 1', value: 0},
+        o11: {question: 'option 1', value: 0},
+        o12: {question: 'correct option', value: 1},
+        // Fourth Question
+        question4: 'question four',
+        o13: {question: 'option 1', value: 0},
+        o14: {question: 'option 2', value: 0},
+        o15: {question: 'correct option', value: 1},
+        o16: {question: 'option 3', value: 0},
+        // Fifth Question
+        question5: 'question five',
+        o17: {question: 'option 1', value: 0},
+        o18: {question: 'option 2', value: 0},
+        o19: {question: 'option 3', value: 0},
+        o20: {question: 'correct option', value: 1},
     }
 
     let lesson = `
@@ -74,27 +107,33 @@ function BasicElements() {
     }, [dispatch]);
 
     return (
-        <div className='topic'>
-            <h1>Basic Elements</h1>
-            <Lesson
-                defaultAnswer={defaultAnswer}
-                viewSolution={viewSolution}
-                lesson={lesson}
-                hint={hint}
-                task={task}
-                checkAnswer={checkAnswer}
-            />
+        <>
+            <div className='topic'>
+                <h1>Basic Elements</h1>
+                <Lesson
+                    defaultAnswer={defaultAnswer}
+                    viewSolution={viewSolution}
+                    lesson={lesson}
+                    hint={hint}
+                    task={task}
+                    checkAnswer={checkAnswer}
+                />
+                <button onClick={() => {
+                    // Stops user from backwards progression
+                    history.push('/progression')
+                }
+                }
+                > Back </button>
+                <button onClick={() => {
+                    user.recent_topic_completed > 2 ? '' : axios.post('/api/user/next-topic', { username: user.username, nextTopic: 2 })
+                    answer === 'Correct' ? console.log('go to next task') : console.log('stay here')
+                }}>Next</button>
+            </div >
             <button onClick={() => {
-                // Stops user from backwards progression
-                history.push('/progression')
-            }
-            }
-            > Back </button>
-            <button onClick={() => {
-                user.recent_topic_completed > 2 ? '' : axios.post('/api/user/next-topic', { username: user.username, nextTopic: 2 })
-                answer === 'Correct' ? console.log('go to next task') : console.log('stay here')
-            }}>Next</button>
-        </div >
+                dispatch({ type: 'SET_QUIZ', payload: quizOptions });
+                history.push('/quiz-page-one');
+            }}>Go to quiz</button>
+        </>
     );
 }
 

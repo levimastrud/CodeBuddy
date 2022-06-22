@@ -163,7 +163,7 @@ input {
   text-align: left;
   align-self: flex-start;
   padding: 0 1em 0 1em;
-  font-size: 1.5em;
+  font-size: 1em;
   width: 20vw;
   height: 60vh;
 }
@@ -210,4 +210,18 @@ iframe {
   border-left: 1px solid black;
   height: 60vh;
   color: black;
+}
+
+/* ------------------ QUIZ -------------------------- */
+
+.quiz {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quiz button{
+  margin: .5em;
 }
