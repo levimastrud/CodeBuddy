@@ -35,6 +35,7 @@ function BasicElements() {
     }
 
     let quizOptions = {
+        topic: 'elements_results',
         // First Question
         question1: 'question one',
         o1: {question: 'option 1', value: 0},
