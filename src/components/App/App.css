@@ -224,4 +224,6 @@ iframe {
 
 .quiz button{
   margin: .5em;
+  width: 50em;
+  height: 5em;
 }

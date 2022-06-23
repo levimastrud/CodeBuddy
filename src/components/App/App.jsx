@@ -22,16 +22,26 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import CoursesPage from '../CoursesPage/CoursesPage';
 import Progression from '../Progression/Progression';
 
-// HTML Topics
+// HTML Topics -----------------
 import Intro from '../LearnHTML/Topics/Intro/Intro';
-import BasicElements from '../LearnHTML/Topics/BasicElements/BasicElements';
+// Basic Elements
+import OpeningAndClosing from '../LearnHTML/Topics/BasicElements/OpeningAndClosing';
+import HeaderAndParagraph from '../LearnHTML/Topics/BasicElements/HeaderAndParagraph';
+// Lists
 import Lists from '../LearnHTML/Topics/Lists/Lists';
+// Images
 import Images from '../LearnHTML/Topics/Images/Images';
+// Links
 import Links from '../LearnHTML/Topics/Links/Links';
+// Styles
 import Styles from '../LearnHTML/Topics/Styles/Styles';
+// Forms
 import Forms from '../LearnHTML/Topics/Forms/Forms';
+// Buttons
 import Buttons from '../LearnHTML/Topics/Buttons/Buttons';
+// Tables
 import Tables from '../LearnHTML/Topics/Tables/Tables';
+// Final Test
 import FinalTest from '../LearnHTML/Topics/FinalTest/FinalTest';
 
 // Quizzes
@@ -92,9 +102,16 @@ function App() {
           </Route>
           <Route
             exact
-            path="/basic-elements"
+            path="/opening-and-closing"
           >
-            <BasicElements />
+            <OpeningAndClosing />
+          </Route>
+
+          <Route
+            exact
+            path="/header-and-paragraph"
+          >
+            <HeaderAndParagraph />
           </Route>
 
           <Route

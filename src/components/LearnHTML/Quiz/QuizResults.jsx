@@ -16,6 +16,7 @@ function QuizResults(props) {
     const resultsFunction = () => {
         if (quizTotal > user[quizTopic]) {
             axios.post('api/user/elements-quiz-total', { quizTotal: quizTotal, userId: user.id })
+            user.recent_topic_completed > 2 ? '' : axios.post('/api/user/next-topic', { username: user.username, nextTopic: quiz.nextTopic })
             dispatch({ type: 'CLEAR_TOTAL' });
             history.push('/progression')
         } else {
