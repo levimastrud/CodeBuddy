@@ -22,9 +22,10 @@ function QuizResults(props) {
             <h1>Score</h1>
             <h1>{quizTotal}</h1>
             <button onClick={() => {
-                axios.post('api/user/quiz-total', {quizTotal: quizTotal, topic: quiz.topic, userId: user.id})
+                axios.post('api/user/elements-quiz-total', {quizTotal: quizTotal, userId: user.id})
                 dispatch({ type: 'CLEAR_QUIZ'});
-                history.push('/progression')
+                console.log(quizTotal)
+                // history.push('/progression')
             }}>Next</button>
         </div >
     );

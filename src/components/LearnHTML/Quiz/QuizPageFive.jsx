@@ -18,10 +18,22 @@ function QuizPageFive(props) {
     return (
         <div className='quiz'>
             <h1>{quiz.question5}</h1>
-            <button onClick={() => history.push('/quiz-results')}>{quiz.o17.question}</button>
-            <button onClick={() => history.push('/quiz-results')}>{quiz.o18.question}</button>
-            <button onClick={() => history.push('/quiz-results')}>{quiz.o19.question}</button>
-            <button onClick={() => history.push('/quiz-results')}>{quiz.o20.question}</button>
+            <button onClick={() => {
+                dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o17.value })
+                history.push('/quiz-results')
+            }}>{quiz.o17.question}</button>
+            <button onClick={() => {
+                dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o18.value })
+                history.push('/quiz-results')
+            }}>{quiz.o18.question}</button>
+            <button onClick={() => {
+                dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o19.value })
+                history.push('/quiz-results')
+            }}>{quiz.o19.question}</button>
+            <button onClick={() => {
+                dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o20.value })
+                history.push('/quiz-results')
+                }}>{quiz.o20.question}</button>
         </div >
     );
 }

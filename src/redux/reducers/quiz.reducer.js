@@ -4,6 +4,8 @@ const quizReducer = (state = [], action) => {
             return action.payload;
         case 'GET_QUIZ':
             return state;
+        case 'CLEAR_QUIZ':
+            return [];
         default:
             return state;
     }

@@ -1,3 +1,4 @@
+const { response } = require('express');
 const express = require('express');
 const {
   rejectUnauthenticated,
@@ -75,13 +76,20 @@ router.post('/reset', (req, res) => {
   });
 })
 
-router.post('/quiz-total', (req, res) => {
+router.get('/fetch-scores', (req, res) => {
+  pool.query('SELECT * FROM "user";')
+  .then(response => {
+    res.send(response.rows)
+  }).catch(error => {
+    console.log('error getting results')
+  })
+});
+
+router.post('/elements-quiz-total', (req, res) => {
   const userId = req.body.userId;
   const quizTotal = req.body.quizTotal;
-  const topic = req.body.topic;
-  console.log('user id', userId, 'quiz total', quizTotal, 'topic', topic)
   let queryText = `UPDATE "user"
-  SET "elements_results" = $1
+  SET elements_results = $1
   WHERE id = $2;`
   pool.query(queryText, [quizTotal, userId])
   .then(() => {
