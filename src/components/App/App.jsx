@@ -23,25 +23,35 @@ import CoursesPage from '../CoursesPage/CoursesPage';
 import Progression from '../Progression/Progression';
 
 // HTML Topics -----------------
-import Intro from '../LearnHTML/Topics/Intro/Intro';
+// Intro
+import WhatIsHTML from '../LearnHTML/Topics/Intro/WhatIsHTML';
+import WhyUseHTML from '../LearnHTML/Topics/Intro/WhyUseHtml';
 // Basic Elements
 import OpeningAndClosing from '../LearnHTML/Topics/BasicElements/OpeningAndClosing';
 import HeaderAndParagraph from '../LearnHTML/Topics/BasicElements/HeaderAndParagraph';
 // Lists
-import Lists from '../LearnHTML/Topics/Lists/Lists';
+import UnorderedAndOrdered from '../LearnHTML/Topics/Lists/UnorderedAndOrdered';
+import ListItem from '../LearnHTML/Topics/Lists/ListItem';
 // Images
 import Images from '../LearnHTML/Topics/Images/Images';
 // Links
-import Links from '../LearnHTML/Topics/Links/Links';
+import LinkTag from '../LearnHTML/Topics/Links/LinkTag';
+import Target from '../LearnHTML/Topics/Links/Target';
 // Styles
-import Styles from '../LearnHTML/Topics/Styles/Styles';
+import IntroToCss from '../LearnHTML/Topics/Styles/IntroToCss';
+import Styling from '../LearnHTML/Topics/Styles/Styling';
+import Classes from '../LearnHTML/Topics/Styles/Classes';
 // Forms
-import Forms from '../LearnHTML/Topics/Forms/Forms';
+import Form from '../LearnHTML/Topics/Forms/Form';
+import Labels from '../LearnHTML/Topics/Forms/Labels';
 // Buttons
 import Buttons from '../LearnHTML/Topics/Buttons/Buttons';
 // Tables
-import Tables from '../LearnHTML/Topics/Tables/Tables';
+import Table from '../LearnHTML/Topics/Tables/Table';
+import THeadAndTBody from '../LearnHTML/Topics/Tables/TheadAndTBody';
+import TableBorders from '../LearnHTML/Topics/Tables/TableBorders';
 // Final Test
+import Congratulations from '../LearnHTML/Topics/FinalTest/Congratulations';
 import FinalTest from '../LearnHTML/Topics/FinalTest/FinalTest';
 
 // Quizzes
@@ -96,10 +106,18 @@ function App() {
           {/* --------------------- TOPICS FOR HTML COURSE ------------------- */}
           <Route
             exact
-            path="/intro"
+            path="/what-is-html"
           >
-            <Intro />
+            <WhatIsHTML />
           </Route>
+
+          <Route
+            exact
+            path="/why-use-html"
+          >
+            <WhyUseHTML />
+          </Route>
+
           <Route
             exact
             path="/opening-and-closing"
@@ -116,9 +134,16 @@ function App() {
 
           <Route
             exact
-            path="/lists"
+            path="/unordered-and-ordered"
           >
-            <Lists />
+            <UnorderedAndOrdered />
+          </Route>
+
+          <Route
+            exact
+            path="list-item"
+          >
+            <ListItem />
           </Route>
                     
           <Route
@@ -130,23 +155,51 @@ function App() {
                     
           <Route
             exact
-            path="/links"
+            path="/link-tag"
           >
-            <Links />
+            <LinkTag />
+          </Route>
+
+          <Route
+            exact
+            path="/target"
+          >
+            <Target />
           </Route>
                     
           <Route
             exact
-            path="/styles"
+            path="/intro-to-css"
           >
-            <Styles />
+            <IntroToCss />
+          </Route>
+
+          <Route
+            exact
+            path="/styling"
+          >
+            <Styling />
+          </Route>
+
+          <Route
+            exact
+            path="/classes"
+          >
+            <Classes />
           </Route>
                     
           <Route
             exact
-            path="/forms"
+            path="/form"
           >
-            <Forms />
+            <Form />
+          </Route>
+
+          <Route
+            exact
+            path="/labels"
+          >
+            <Labels />
           </Route>
                     
           <Route
@@ -158,9 +211,30 @@ function App() {
                     
           <Route
             exact
-            path="/tables"
+            path="/table"
           >
-            <Tables />
+            <Table />
+          </Route>
+
+          <Route
+            exact
+            path="/thead-and-tbody"
+          >
+            <THeadAndTBody />
+          </Route>
+
+          <Route
+            exact
+            path="/table-borders"
+          >
+            <TableBorders />
+          </Route>
+
+          <Route
+            exact
+            path="/congratulations"
+          >
+            <Congratulations />
           </Route>
                     
           <Route

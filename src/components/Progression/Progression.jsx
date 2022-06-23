@@ -32,33 +32,33 @@ function Progression() {
 
       {/* Course List here */}
 
-      <Link to='/intro'><h1> Intro </h1></Link>
+      <Link to='/what-is-html'><h1> Intro </h1></Link>
 
       {progress > 0 ? <Link to='/opening-and-closing'><h1 className='ready'> Basic Elements </h1></Link> : <h1 className='not-ready'> Basic Elements </h1>}
       { user.elements_results ? <p>Quiz Score: {user.elements_results}</p> : ''}
 
-      {progress > 10 ? <Link to='/lists'><h1 className='ready'> Lists </h1></Link> : <h1 className='not-ready'> Lists </h1>}
+      {progress > 10 ? <Link to='/unordered-and-ordered'><h1 className='ready'> Lists </h1></Link> : <h1 className='not-ready'> Lists </h1>}
       { user.lists_results ? <p>Quiz Score: {user.lists_results}</p> : ''}
 
       {progress > 20 ? <Link to='/images'><h1 className='ready'> Images </h1></Link> : <h1 className='not-ready'> Images </h1>}
       { user.images_results ? <p>Quiz Score: {user.images_results}</p> : ''}
 
-      {progress > 30 ? <Link to='/links'><h1 className='ready'> Links </h1></Link> : <h1 className='not-ready'> Links </h1>}
+      {progress > 30 ? <Link to='/link-tag'><h1 className='ready'> Links </h1></Link> : <h1 className='not-ready'> Links </h1>}
       { user.links_results ? <p>Quiz Score: {user.links_results}</p> : ''}
 
-      {progress > 40 ? <Link to='/styles'><h1 className='ready'> Styles </h1></Link> : <h1 className='not-ready'> Styles </h1>}
+      {progress > 40 ? <Link to='/intro-to-css'><h1 className='ready'> Styles </h1></Link> : <h1 className='not-ready'> Styles </h1>}
       { user.styles_results ? <p>Quiz Score: {user.styles_results}</p> : ''}
 
-      {progress > 50 ? <Link to='/forms'><h1 className='ready'> Forms </h1></Link> : <h1 className='not-ready'> Forms </h1>}
+      {progress > 50 ? <Link to='/form'><h1 className='ready'> Forms </h1></Link> : <h1 className='not-ready'> Forms </h1>}
       { user.forms_results ? <p>Quiz Score: {user.forms_results}</p> : ''}
 
       {progress > 60 ? <Link to='/buttons'><h1 className='ready'> Buttons </h1></Link> : <h1 className='not-ready'> Buttons </h1>}
       { user.buttons_results ? <p>Quiz Score: {user.buttons_results}</p> : ''}
 
-      {progress > 70 ? <Link to='/tables'><h1 className='ready'> Tables </h1></Link> : <h1 className='not-ready'> Tables </h1>}
+      {progress > 70 ? <Link to='/table'><h1 className='ready'> Tables </h1></Link> : <h1 className='not-ready'> Tables </h1>}
       { user.tables_results ? <p>Quiz Score: {user.tables_results}</p> : ''}
 
-      {progress > 80 ? <Link to='/final-test'><h1 className='ready'> Final Test </h1></Link> : <h1 className='not-ready'> Final Test </h1>}
+      {progress > 80 ? <Link to='/congratulations'><h1 className='ready'> Final Test </h1></Link> : <h1 className='not-ready'> Final Test </h1>}
       { user.final_results ? <p>Quiz Score: {user.final_results}</p> : ''}
     </div>
   );
