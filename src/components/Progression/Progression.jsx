@@ -31,6 +31,7 @@ function Progression() {
       <br/>
       <button onClick={() => {
         axios.post('/api/user/reset', { username: user.username })
+        dispatch({ type: 'CLEAR_TOTAL' });
         location.reload()
         }}>Reset progression</button>
 

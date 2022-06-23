@@ -56,7 +56,7 @@ router.post('/next-topic', (req, res) => {
   SET "recent_topic_completed" = $1
   WHERE "username" = $2;`
   pool.query(queryText, [nextTopic, username])
-  .then(() => res.sendStatus(201))
+    .then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('Error going to next topic', err);
       res.sendStatus(500);
@@ -66,23 +66,32 @@ router.post('/next-topic', (req, res) => {
 router.post('/reset', (req, res) => {
   const username = req.body.username;
   let queryText = `UPDATE "user"
-  SET "recent_topic_completed" = 0
+  SET "recent_topic_completed" = 0,
+  "elements_results" = 0,
+	"images_results" = 0,
+	"links_results" = 0,
+	"lists_results" = 0,
+ 	"styles_results" = 0,
+	"buttons_results" = 0,
+	"tables_results" = 0,
+	"forms_results" = 0,
+ 	"final_results" = 0
   WHERE "username" = $1;`
   pool.query(queryText, [username])
-  .then(() => res.sendStatus(201))
-  .catch((err) => {
-    console.log('Error resetting progression', err);
-    res.sendStatus(500);
-  });
+    .then(() => res.sendStatus(201))
+    .catch((err) => {
+      console.log('Error resetting progression', err);
+      res.sendStatus(500);
+    });
 })
 
 router.get('/fetch-scores', (req, res) => {
   pool.query('SELECT * FROM "user";')
-  .then(response => {
-    res.send(response.rows)
-  }).catch(error => {
-    console.log('error getting results')
-  })
+    .then(response => {
+      res.send(response.rows)
+    }).catch(error => {
+      console.log('error getting results')
+    })
 });
 
 router.post('/elements-quiz-total', (req, res) => {
@@ -92,10 +101,10 @@ router.post('/elements-quiz-total', (req, res) => {
   SET elements_results = $1
   WHERE id = $2;`
   pool.query(queryText, [quizTotal, userId])
-  .then(() => {
-    res.sendStatus(201)
-    console.log('sent QUIZ RESULTS')
-  })
+    .then(() => {
+      res.sendStatus(201)
+      console.log('sent QUIZ RESULTS')
+    })
     .catch((err) => {
       console.log('Error posting results', err);
       res.sendStatus(500);
