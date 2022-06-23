@@ -94,11 +94,30 @@ router.get('/fetch-scores', (req, res) => {
     })
 });
 
+// Router for results
+
 router.post('/elements-quiz-total', (req, res) => {
   const userId = req.body.userId;
   const quizTotal = req.body.quizTotal;
   let queryText = `UPDATE "user"
   SET elements_results = $1
+  WHERE id = $2;`
+  pool.query(queryText, [quizTotal, userId])
+    .then(() => {
+      res.sendStatus(201)
+      console.log('sent QUIZ RESULTS')
+    })
+    .catch((err) => {
+      console.log('Error posting results', err);
+      res.sendStatus(500);
+    });
+});
+
+router.post('/lists-quiz-total', (req, res) => {
+  const userId = req.body.userId;
+  const quizTotal = req.body.quizTotal;
+  let queryText = `UPDATE "user"
+  SET lists_results = $1
   WHERE id = $2;`
   pool.query(queryText, [quizTotal, userId])
     .then(() => {

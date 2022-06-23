@@ -141,7 +141,7 @@ function App() {
 
           <Route
             exact
-            path="list-item"
+            path="/list-item"
           >
             <ListItem />
           </Route>

@@ -68,6 +68,7 @@ function HeaderAndParagraph() {
 
     let quizOptions = {
         topic: 'elements_results',
+        router: 'elements',
         nextTopic: 2,
         // First Question
         question1: 'What is the <h1> tag used for?',
