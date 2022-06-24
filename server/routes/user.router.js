@@ -181,4 +181,21 @@ router.post('/styles-quiz-total', (req, res) => {
     });
 });
 
+router.post('/forms-quiz-total', (req, res) => {
+  const userId = req.body.userId;
+  const quizTotal = req.body.quizTotal;
+  let queryText = `UPDATE "user"
+  SET forms_results = $1
+  WHERE id = $2;`
+  pool.query(queryText, [quizTotal, userId])
+    .then(() => {
+      res.sendStatus(201)
+      console.log('sent QUIZ RESULTS')
+    })
+    .catch((err) => {
+      console.log('Error posting results', err);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
