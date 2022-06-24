@@ -6,7 +6,8 @@ import { useHistory } from 'react-router-dom';
 function QuizPageFive(props) {
     const user = useSelector((store) => store.user);
     const quiz = useSelector((store) => store.quiz);
-    console.log(quiz)
+    let quizTotal = useSelector((store) => store.quizTotal);
+    console.log(quizTotal)
 
     const dispatch = useDispatch();
     const history = useHistory()
@@ -18,22 +19,22 @@ function QuizPageFive(props) {
     return (
         <div className='quiz'>
             <h1>{quiz.question5}</h1>
-            <button onClick={() => {
+            {quiz.o17 ? <button onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o17.value })
-                history.push('/quiz-results')
-            }}>{quiz.o17.question}</button>
-            <button onClick={() => {
+                {quizTotal >= 3 ? history.push('/quiz-results'): history.push('/quiz-failure')}
+            }}>{quiz.o17.question}</button>: ''}
+            {quiz.o18 ? <button onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o18.value })
-                history.push('/quiz-results')
-            }}>{quiz.o18.question}</button>
-            <button onClick={() => {
+                {quizTotal >= 3 ? history.push('/quiz-results'): history.push('/quiz-failure')}
+            }}>{quiz.o18.question}</button> : ''}
+            {quiz.o19 ? <button onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o19.value })
-                history.push('/quiz-results')
-            }}>{quiz.o19.question}</button>
-            <button onClick={() => {
+                {quizTotal >= 3 ? history.push('/quiz-results'): history.push('/quiz-failure')}
+            }}>{quiz.o19.question}</button> : ''}
+            {quiz.o20 ? <button onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o20.value })
-                history.push('/quiz-results')
-                }}>{quiz.o20.question}</button>
+                {quizTotal >= 3 ? history.push('/quiz-results'): history.push('/quiz-failure')}
+                }}>{quiz.o20.question}</button> : ''}
         </div >
     );
 }

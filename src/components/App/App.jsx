@@ -61,6 +61,7 @@ import QuizPageThree from '../LearnHTML/Quiz/QuizPageThree';
 import QuizPageFour from '../LearnHTML/Quiz/QuizPageFour';
 import QuizPageFive from '../LearnHTML/Quiz/QuizPageFive';
 import QuizResults from '../LearnHTML/Quiz/QuizResults';
+import QuizFailure from '../LearnHTML/Quiz/QuizFailure';
 
 import './App.css';
 
@@ -284,6 +285,13 @@ function App() {
             path="/quiz-results"
           >
             <QuizResults />
+          </Route>
+
+          <Route
+            exact
+            path="/quiz-failure"
+          >
+            <QuizFailure />
           </Route>
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.

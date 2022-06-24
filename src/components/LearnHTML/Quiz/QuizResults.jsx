@@ -14,10 +14,10 @@ function QuizResults(props) {
     const history = useHistory()
     console.log('QUIZ TOPIC', quiz.topic)
 
-    const resultsFunction = () => {
+    const resultsFunction = async () => {
         if (quizTotal > user[quizTopic]) {
-            axios.post(`api/user/${quiz.router}-quiz-total`, { quizTotal: quizTotal, userId: user.id })
-            user.recent_topic_completed > quiz.nextTopic ? '' : axios.post('/api/user/next-topic', { username: user.username, nextTopic: quiz.nextTopic })
+            await axios.post(`api/user/${quiz.router}-quiz-total`, { quizTotal: quizTotal, userId: user.id })
+            await user.recent_topic_completed > quiz.nextTopic ? '' : axios.post('/api/user/next-topic', { username: user.username, nextTopic: quiz.nextTopic })
             dispatch({ type: 'CLEAR_TOTAL' });
             history.push('/progression')
         } else {
@@ -32,8 +32,8 @@ function QuizResults(props) {
 
     return (
         <div className='quiz'>
-            <h1>Score</h1>
-            <h1>{quizTotal}</h1>
+            <h1>Great job, {user.name}!</h1>
+            <h1>Score: {quizTotal}</h1>
             <button onClick={() => resultsFunction()}>Next</button>
         </div >
     );

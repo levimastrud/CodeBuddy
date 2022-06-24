@@ -1,39 +1,161 @@
 import axios from 'axios';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Lesson from '../../Lesson/Lesson';
+import Quiz from '../../Quiz/QuizPageOne';
 
 function Images() {
     const user = useSelector((store) => store.user);
+    const answer = useSelector((store) => store.answer);
     const history = useHistory()
-    return (
-        <div className="container">
-            <h1>Images</h1>
-            <p>“Yes?” I say. “Timothy?”“You’re a dufus.”“Oh leave Patrick alone,” Evelyn says. “He’s the boy next door.That’s Patrick. You’re not a dufus, are you, honey?” Evelyn is on Marsand I move toward the bar to make myself another drink.“Boy next door.” Tim smirks and nods, then reverses his expressionand hostilely asks Evelyn again if she has a lint brush.Evelyn finishes opening the Japanese beer bottles and tellsCourtney to fetch Stash and Vanden. “We have to eat this now or elsewe’re going to be poisoned,” she murmurs, slowly moving her head,taking in the kitchen, making sure she hasn’t forgotten anything.“If I can tear them away from the latest Megadeth video,” Courtneysays before exiting.“I have to talk to you,” Evelyn says.“What about?” I come up to her.“No,” she says and then pointing at Tim, “to Price.”Tim still glares at her fiercely. I say nothing and stare at Tim’sdrink.“Be a hon,” she tells me, “and place the sushi on the table. Tempurais in the microwave and the sake is just about done boiling.…” Hervoice trails off as she leads Price out of the kitchen.I am wondering where Evelyn got the sushi—the tuna, yellowtail,mackerel, shrimp, eel, even
-                bonito
-                , all seem so fresh and there arepiles of wasabi and clumps of ginger placed strategically around theWilton platter—but I also like the idea that I
-                don’t
-                know, will
-                never
-                know, will never
-                ask
-                where it came from and that the sushi will sitthere in the middle of the glass table from Zona that Evelyn’s fatherbought her like some mysterious apparition from the Orient and as Iset the platter down I catch a glimpse of my reflection on the surfaceof the table. My skin seems darker because of the candlelight and Inotice how good the haircut I got at Gio’s last Wednesday looks. Imake myself another drink. I worry about the sodium level in the soysauce.Four of us sit around the table waiting for Evelyn and Timothy toreturn from getting Price a lint brush. I sit at the head taking largeswallows of J&B. Vanden sits at the other end reading disinterestedlyfrom some East Village rag called
-                Deception
-                , its glaring headline
-                THE
+    const dispatch = useDispatch();
 
-                DEATH OF DOWNTOWN
-                . Stash has pushed a chopstick into a lone piece of yellowtail that lies on the middle of his plate like some shiny impaledinsect and the chopstick stands straight up. Stash occasionally movesthe piece of sushi around the plate with the chopstick but never looksup toward either myself or Vanden or Courtney, who sits next to mesipping plum wine from a champagne glass.Evelyn and Timothy come back perhaps twenty minutes after we’veseated ourselves and Evelyn looks only slightly flushed. Tim glares atme as he takes the seat next to mine, a fresh drink in hand, and heleans over toward me, about to say, to admit something, whensuddenly Evelyn interrupts, “Not there, Timothy,” then, barely awhisper, “Boy girl, boy girl.” She gestures toward the empty chairnext to Vanden. Timothy shifts his glare to Evelyn and hesitantly takesthe seat next to Vanden, who yawns and turns a page of hermagazine.“Well, everybody,” Evelyn says, smiling, pleased with the meal shehas presented, “dig in,” and then after noticing the piece of sushi thatStash has pinned—he’s now bent low over the plate, whispering at it—her composure falters but she smiles bravely and chirps, “Plumwine anyone?”No one says anything until Courtney, who is staring at Stash’s plate,lifts her glass uncertainly and says, trying to smile, “It’s … delicious,Evelyn.”Stash doesn’t speak. Even though he is probably uncomfortable atthe table with us since he looks nothing like the other men in theroom—his hair isn’t slicked back, no suspenders, no horn-rimmedglasses, the clothes black and ill-fitting, no urge to light and suck on acigar, probably unable to secure a table at Camols, his net worth apittance—still, his behavior lacks warrant and he sits there as if hypnotized by the glistening piece of sushi and just as the table isabout to finally ignore him, to look away and start eating, he sits upand loudly says, pointing an accusing finger at his plate, “It moved!”Timothy glares at him with a contempt so total that I can’t fullyequal it but I muster enough energy to come close. Vanden seemsamused and so now, unfortunately, does Courtney, who I’m beginningto think finds this monkey attractive but I suppose if I were datingLuis Carruthers I might too. Evelyn laughs good-naturedly and says,“Oh Stash, you
-                are
-                a riot,” and then asks worriedly, “Tempura?”</p>
-            <button onClick={() => {
-                 // Stops user from backwards progression
-                user.recent_topic_completed > 4 ? '' : axios.post('/api/user/next-topic', {username: user.username, nextTopic: 4})
-                history.push('/progression')
-                }
+    const checkAnswer = (codeBlock) => {
+
+        const parser = new DOMParser();
+        const parsed = parser.parseFromString(codeBlock, "text/html");
+        let parsedExpanded = parsed.lastChild.lastChild.childNodes;
+
+        // Logs used for programming check answer logic 
+
+        console.log('parse expanded length:', parsedExpanded.length)
+        console.log('parse expanded:', parsedExpanded)
+        console.log('parsed', parsed.lastChild.lastChild)
+        console.log('Parsed Node Name goes here ->', parsedExpanded[3].ATTRIBUTE_NODE )
+
+        // Determines whether or not codeBlock is correct.
+        // This will need to be modified for every different topic.
+
+        try {
+            if (parsedExpanded.length < 5) {
+                dispatch({ type: 'SET_ANSWER', payload: 'Incorrect' });
             }
-            >Finish Topic</button>
-        </div >
+            if (parsedExpanded[3].nodeName === 'IMG' && parsedExpanded[3].ATTRIBUTE_NODE === 2) {
+                dispatch({ type: 'SET_ANSWER', payload: 'Correct' });
+            } else {
+                dispatch({ type: 'SET_ANSWER', payload: 'Incorrect' });
+            }
+        } catch {
+            dispatch({ type: 'SET_ANSWER', payload: 'Incorrect' });
+        }
+    }
+
+    let lesson = `
+    Images can be a great way to add flair to your page. An image tag looks like this <img src = “funny-cat.png” alt = “A funny cat”>
+    The image tag is unique because it is one of few HTML tags that does not have a closing tag.
+    It does require the two attributes src and alt.
+    Src - this is the source of an image. This could be a link to another image on the internet or just referencing a file on your local computer.
+    Alt - this is the alternate text for the image. If for whatever reason your image doesn’t load properly, the alternate text will describe what should be there.
+    `;
+
+    let task = `Create an image with a source of “https://bit.ly/3OFG8PE"” and an alt of “Some cute kittens”`;
+
+    let defaultAnswer = `
+    <html>
+        <head>
+        </head>
+        <body>
+            <style>
+                img {
+                    width: 20em;
+                }
+            </style>
+
+        <! -- YOUR CODE HERE -->
+
+        </body>
+    </html>
+    `;
+
+    let viewSolution = `
+    <html>
+        <head>
+        </head>
+        <body>
+            <style>
+            img {
+                width: 20em;
+            }
+            </style>
+            <img src = "https://bit.ly/3OFG8PE" alt = "Some cute kittens">
+        </body>
+    </html>
+    `;
+
+    let hint = `Are all the list items inside an <ol> tag?`
+
+    let quizOptions = {
+        topic: 'images_results',
+        router: 'images',
+        nextTopic: 4,
+        // First Question
+        question1: 'What is the purpose of the src attribute?',
+        o1: {question: 'Describes how big the image is', value: 0},
+        o2: {question: `Describes the image if the image doesn't load`, value: 0},
+        o3: {question: 'Creates the image', value: 0},
+        o4: {question: 'Specify the path to the image', value: 1},
+        // Second Question
+        question2: 'When would the alt attribute be useful?',
+        o5: {question: `When you aren't sure what you want the image to be`, value: 0},
+        o6: {question: `To describe what the image would be if the page doesn't load`, value: 1},
+        o7: {question: 'To specify how big an image should be', value: 0},
+        o8: {question: 'When you want to link to a gif or video', value: 0},
+        // Third Question
+        question3: 'Which image is written properly?',
+        o9: {question:`<img src="dogs.jpg" alt = "photo of dogs"> </img>`, value: 0},
+        o10: {question: `<img src="dogs.jpg" alt = "photo of dogs">`, value: 1},
+        o11: {question: `<imgage src="photo of dogs" alt = "dogs.jpg">`, value: 0},
+        o12: {question: `<img src="photo of dogs" alt = "dogs.jpg">`, value: 0},
+        // Fourth Question
+        question4: 'How many list items can go in a list?',
+        o13: {question: `List items don't go in lists`, value: 0},
+        o14: {question: 'Five', value: 0},
+        o15: {question: 'As many as you want', value: 1},
+        o16: {question: 'Eleventeen', value: 0},
+        // Fifth Question
+        question5: 'True or false: The image tag does not have a closing tag.',
+        o17: {question: 'true', value: 1},
+        o18: {question: 'false', value: 0},
+    }
+
+    const isReady = () => {
+        if (answer === 'Correct') {
+            dispatch({ type: 'SET_QUIZ', payload: quizOptions });
+            dispatch({ type: 'SET_ANSWER', payload: '' });
+            history.push('/quiz-page-one');
+        } else {
+            console.log('stay here')
+        }
+    }
+
+    useEffect(() => {
+        dispatch({ type: 'SET_CODE_BLOCK', payload: defaultAnswer });
+    }, [dispatch]);
+
+    return (
+        <>
+            <div className='topic'>
+                <h1>List Item</h1>
+                <Lesson
+                    defaultAnswer={defaultAnswer}
+                    viewSolution={viewSolution}
+                    lesson={lesson}
+                    hint={hint}
+                    task={task}
+                    checkAnswer={checkAnswer}
+                />
+                <button onClick={() => {
+                    // Stops user from backwards progression
+                    history.push('/progression')
+                }
+                }
+                > Back </button>
+                <button onClick={() => {
+                    isReady();
+                }}>Next</button>
+            </div >
+        </>
     );
 }
 

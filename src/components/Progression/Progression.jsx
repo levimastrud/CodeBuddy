@@ -24,10 +24,10 @@ function Progression() {
       <h1>Learn HTML: {progress < 0 ? 0: progress}% Complete</h1>
       <progress max={100} value = {progress}></progress>
       <br/>
-      <button onClick={() => {
-        axios.post('/api/user/reset', { username: user.username })
+      <button onClick={ async () => {
+        await axios.post('/api/user/reset', { username: user.username })
         dispatch({ type: 'CLEAR_TOTAL' });
-        location.reload()
+        dispatch({ type: 'FETCH_USER' })
         }}>Reset progression</button>
 
       {/* Course List here */}
