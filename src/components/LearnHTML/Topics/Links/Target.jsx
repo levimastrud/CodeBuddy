@@ -78,7 +78,7 @@ function Target() {
     let quizOptions = {
         topic: 'links_results',
         router: 'links',
-        nextTopic: 4,
+        nextTopic: 5,
         // First Question
         question1: 'What does the href attribute do?',
         o1: {question: 'Opens the link in a new window', value: 0},

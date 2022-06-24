@@ -92,7 +92,7 @@ function Classes() {
     let quizOptions = {
         topic: 'styles_results',
         router: 'styles',
-        nextTopic: 5,
+        nextTopic: 6,
         // First Question
         question1: 'How would you style all h1 elements to be red?',
         o1: {question: 'h1 { color: red; }', value: 1},

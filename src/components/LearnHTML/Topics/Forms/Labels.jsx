@@ -86,7 +86,7 @@ function Labels() {
     let quizOptions = {
         topic: 'forms_results',
         router: 'forms',
-        nextTopic: 6,
+        nextTopic: 7,
         // First Question
         question1: 'What is a good way to tell the user what to put in an input?',
         o1: {question: 'Labels', value: 1},
