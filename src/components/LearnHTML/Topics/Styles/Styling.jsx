@@ -18,19 +18,22 @@ function Styling() {
 
         // Logs used for programming check answer logic 
 
+        let wtfString = parsedExpanded[1].textContent.replace(/\r?\n/g, '');
+
         console.log('parse expanded length:', parsedExpanded.length)
         console.log('parse expanded:', parsedExpanded)
         console.log('parsed', parsed.lastChild.lastChild)
-        console.log('Parsed Node Name goes here ->',)
+        console.log('WTF:', wtfString)
+        console.log('Parsed Node Name goes here ->', wtfString.search('h1'))
 
         // Determines whether or not codeBlock is correct.
         // This will need to be modified for every different topic.
 
         try {
-            if (parsedExpanded.length < 3) {
+            if (parsedExpanded.length < 7) {
                 dispatch({ type: 'SET_ANSWER', payload: 'Incorrect' });
             }
-            if (parsed.firstChild.firstChild.childNodes[1].nodeName === 'LINK') {
+            if (wtfString.search('h1') > 1 && wtfString.search('color') > 1) {
                 dispatch({ type: 'SET_ANSWER', payload: 'Correct' });
             } else {
                 dispatch({ type: 'SET_ANSWER', payload: 'Incorrect' });
@@ -41,19 +44,26 @@ function Styling() {
     }
 
     let lesson = `
-    What if you want your project to not just be black and white? What if you want cool fonts, or bouncy animations? That’s where CSS comes in. CSS stands for Cascading Style Sheets. With CSS You can change the visual styles of html.
-	Link
-    Since our CSS is located in another file, we need to bring it in with a link tag. We bring it in like so: <link href = ‘style.css’ rel = ‘stylesheet’>. This will also need to be located between the <head> tags at the top. 
-    Insert a link tag that links our CSS between the <head> tags.
+    When styling, you first select what you want to style, then how you want to style it. The format looks like this:
+    h1 {
+    color: red;
+    }
+    There are many, many different style attributes. You can find more to play around with here:  https://www.w3schools.com/css/
+    For now, we will use the color style, which changes the color of the selected text to be whatever we specify. 
     `;
 
-    let task = `Insert a link tag that links our CSS between the <head> tags.`;
+    let task = `Style all h1 elements to be a color of your choice!`;
 
     let defaultAnswer = `
     <html>
         <head>
         </head>
         <body>
+            <style>
+                <! -- YOUR CODE HERE -->
+            </style>
+            <h1> Color me! </h1>
+            <h1> Color me too! </h1>
         </body>
     </html>
     `;
@@ -61,18 +71,24 @@ function Styling() {
     let viewSolution = `
     <html>
         <head>
-            <link href = "styles.css" rel = "stylesheet">
         </head>
         <body>
+            <style>
+                h1 {
+                    color: blue;
+                }
+            </style>
+            <h1> Color me! </h1>
+            <h1> Color me too! </h1>
         </body>
     </html>
     `;
 
-    let hint = `Did you insert the link tag between the <head> tags?`
+    let hint = `Did you set 'color' to a color?`
 
     const isReady = () => {
         if (answer === 'Correct') {
-            history.push('/styling')
+            history.push('/classes')
             dispatch({ type: 'SET_ANSWER', payload: '' });
         } else {
             console.log('stay here')
