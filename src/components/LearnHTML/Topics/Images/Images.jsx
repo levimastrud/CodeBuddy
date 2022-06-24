@@ -31,7 +31,7 @@ function Images() {
             if (parsedExpanded.length < 5) {
                 dispatch({ type: 'SET_ANSWER', payload: 'Incorrect' });
             }
-            if (parsedExpanded[3].nodeName === 'IMG' && parsedExpanded[3].ATTRIBUTE_NODE === 2) {
+            if (parsedExpanded[3].nodeName === 'IMG' && parsedExpanded[3].attributes === 2) {
                 dispatch({ type: 'SET_ANSWER', payload: 'Correct' });
             } else {
                 dispatch({ type: 'SET_ANSWER', payload: 'Incorrect' });
@@ -83,7 +83,7 @@ function Images() {
     </html>
     `;
 
-    let hint = `Are all the list items inside an <ol> tag?`
+    let hint = `Do you have a src and alt attribute?`
 
     let quizOptions = {
         topic: 'images_results',
@@ -114,9 +114,9 @@ function Images() {
         o15: {question: 'As many as you want', value: 1},
         o16: {question: 'Eleventeen', value: 0},
         // Fifth Question
-        question5: 'True or false: The image tag does not have a closing tag.',
-        o17: {question: 'true', value: 1},
-        o18: {question: 'false', value: 0},
+        question5: 'The image tag does not have a closing tag.',
+        o17: {question: 'True', value: 1},
+        o18: {question: 'False', value: 0},
     }
 
     const isReady = () => {
@@ -136,7 +136,7 @@ function Images() {
     return (
         <>
             <div className='topic'>
-                <h1>List Item</h1>
+                <h1> Images </h1>
                 <Lesson
                     defaultAnswer={defaultAnswer}
                     viewSolution={viewSolution}
