@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import CB_Happy from '../CodeBuddy Graphics/CB_Happy.svg'
+import { Button } from '@mui/material';
 
 function QuizResults(props) {
     const user = useSelector((store) => store.user);
@@ -36,7 +37,7 @@ function QuizResults(props) {
             <h1>Great job, {user.name}!</h1>
             <h1>Score: {quizTotal}</h1>
             <img src={CB_Happy} className = 'code-buddy-large'></img>
-            <button onClick={() => resultsFunction()}>Next</button>
+            <Button onClick={() => resultsFunction()}>Next</Button>
         </div >
     );
 }

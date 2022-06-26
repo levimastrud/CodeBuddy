@@ -13,9 +13,9 @@ function CoursesPage() {
         <>
             <Nav />
             <div className="container">
-                <Link to='/progression'><h1> Learn HTML </h1></Link>
-                <h1> Learn CSS </h1>
-                <h1> Learn JavaScript </h1>
+                <Link to='/progression'><h1 className='ready'> Learn HTML </h1></Link>
+                <h1 className='not-ready'> Learn CSS </h1>
+                <h1 className='not-ready'> Learn JavaScript </h1>
             </div>
         </>
     );

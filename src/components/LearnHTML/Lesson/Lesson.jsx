@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import CB_Default from '../CodeBuddy Graphics/CB_Default.svg'
+import CB_Default from '../CodeBuddy Graphics/CB_Default.svg';
 
 function Lesson(props) {
 

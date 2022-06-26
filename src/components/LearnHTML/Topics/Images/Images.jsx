@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Lesson from '../../Lesson/Lesson';
 import Quiz from '../../Quiz/QuizPageOne';
+import { IconButton } from '@mui/material';
+import EastIcon from '@mui/icons-material/East';
 
 function Images() {
     const user = useSelector((store) => store.user);
@@ -22,7 +24,7 @@ function Images() {
         console.log('parse expanded length:', parsedExpanded.length)
         console.log('parse expanded:', parsedExpanded)
         console.log('parsed', parsed.lastChild.lastChild)
-        console.log('Parsed Node Name goes here ->', parsedExpanded[3].ATTRIBUTE_NODE )
+        console.log('Parsed Node Name goes here ->', parsedExpanded[3].ATTRIBUTE_NODE)
 
         // Determines whether or not codeBlock is correct.
         // This will need to be modified for every different topic.
@@ -91,32 +93,32 @@ function Images() {
         nextTopic: 4,
         // First Question
         question1: 'What is the purpose of the src attribute?',
-        o1: {question: 'Describes how big the image is', value: 0},
-        o2: {question: `Describes the image if the image doesn't load`, value: 0},
-        o3: {question: 'Creates the image', value: 0},
-        o4: {question: 'Specify the path to the image', value: 1},
+        o1: { question: 'Describes how big the image is', value: 0 },
+        o2: { question: `Describes the image if the image doesn't load`, value: 0 },
+        o3: { question: 'Creates the image', value: 0 },
+        o4: { question: 'Specify the path to the image', value: 1 },
         // Second Question
         question2: 'When would the alt attribute be useful?',
-        o5: {question: `When you aren't sure what you want the image to be`, value: 0},
-        o6: {question: `To describe what the image would be if the page doesn't load`, value: 1},
-        o7: {question: 'To specify how big an image should be', value: 0},
-        o8: {question: 'When you want to link to a gif or video', value: 0},
+        o5: { question: `When you aren't sure what you want the image to be`, value: 0 },
+        o6: { question: `To describe what the image would be if the page doesn't load`, value: 1 },
+        o7: { question: 'To specify how big an image should be', value: 0 },
+        o8: { question: 'When you want to link to a gif or video', value: 0 },
         // Third Question
         question3: 'Which image is written properly?',
-        o9: {question:`<img src="dogs.jpg" alt = "photo of dogs"> </img>`, value: 0},
-        o10: {question: `<img src="dogs.jpg" alt = "photo of dogs">`, value: 1},
-        o11: {question: `<imgage src="photo of dogs" alt = "dogs.jpg">`, value: 0},
-        o12: {question: `<img src="photo of dogs" alt = "dogs.jpg">`, value: 0},
+        o9: { question: `<img src="dogs.jpg" alt = "photo of dogs"> </img>`, value: 0 },
+        o10: { question: `<img src="dogs.jpg" alt = "photo of dogs">`, value: 1 },
+        o11: { question: `<imgage src="photo of dogs" alt = "dogs.jpg">`, value: 0 },
+        o12: { question: `<img src="photo of dogs" alt = "dogs.jpg">`, value: 0 },
         // Fourth Question
         question4: 'How many list items can go in a list?',
-        o13: {question: `List items don't go in lists`, value: 0},
-        o14: {question: 'Five', value: 0},
-        o15: {question: 'As many as you want', value: 1},
-        o16: {question: 'Eleventeen', value: 0},
+        o13: { question: `List items don't go in lists`, value: 0 },
+        o14: { question: 'Five', value: 0 },
+        o15: { question: 'As many as you want', value: 1 },
+        o16: { question: 'Eleventeen', value: 0 },
         // Fifth Question
         question5: 'The image tag does not have a closing tag.',
-        o17: {question: 'True', value: 1},
-        o18: {question: 'False', value: 0},
+        o17: { question: 'True', value: 1 },
+        o18: { question: 'False', value: 0 },
     }
 
     const isReady = () => {
@@ -155,6 +157,12 @@ function Images() {
                     isReady();
                 }}>Next</button>
             </div >
+
+            {answer === 'Correct' ? <IconButton onClick={() => {
+                    isReady();
+                }}>
+                <EastIcon />
+            </IconButton>: ''}
         </>
     );
 }

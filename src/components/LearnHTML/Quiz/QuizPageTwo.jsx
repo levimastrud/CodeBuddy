@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { Button } from '@mui/material'
 
 function QuizPageTwo(props) {
     const user = useSelector((store) => store.user);
@@ -18,22 +19,22 @@ function QuizPageTwo(props) {
     return (
         <div className='quiz'>
             <h1>{quiz.question2}</h1>
-            <button onClick={() => {
+            <Button variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o5.value })
                 history.push('/quiz-page-three')
-            }}>{quiz.o5.question}</button>
-            <button onClick={() => {
+            }}>{quiz.o5.question}</Button>
+            <Button variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o6.value })
                 history.push('/quiz-page-three')
-            }}>{quiz.o6.question}</button>
-            <button onClick={() => {
+            }}>{quiz.o6.question}</Button>
+            <Button variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o7.value })
                 history.push('/quiz-page-three')
-            }}>{quiz.o7.question}</button>
-            <button onClick={() => {
+            }}>{quiz.o7.question}</Button>
+            <Button variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o8.value })
                 history.push('/quiz-page-three')
-                }}>{quiz.o8.question}</button>
+                }}>{quiz.o8.question}</Button>
         </div >
     );
 }

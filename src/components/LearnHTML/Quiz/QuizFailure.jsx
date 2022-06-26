@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import CB_Sad from '../CodeBuddy Graphics/CB_Sad.svg'
+import { Button } from '@mui/material';
 
 function QuizFailure(props) {
     const user = useSelector((store) => store.user);
@@ -23,10 +24,14 @@ function QuizFailure(props) {
             <h1>A score of 3 is needed to proceed</h1>
             <h3>Your score: {quizTotal}</h3>
             <img className = 'code-buddy-large' src = {CB_Sad}></img>
-            <button onClick={() => {
+            <Button variant = 'contained' onClick={() => {
                 dispatch({type: 'CLEAR_TOTAL'});
                 history.push('/quiz-page-one');
-                }}>Retry quiz</button>
+                }}>Retry quiz</Button>
+            <Button variant = 'outlined' onClick = {() => {
+                dispatch({type: 'CLEAR_TOTAL'});
+                history.push('/progression');
+            }}>Back</Button>
         </div >
     );
 }

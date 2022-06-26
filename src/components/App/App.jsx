@@ -63,10 +63,31 @@ import QuizPageFive from '../LearnHTML/Quiz/QuizPageFive';
 import QuizResults from '../LearnHTML/Quiz/QuizResults';
 import QuizFailure from '../LearnHTML/Quiz/QuizFailure';
 
+// Theme
+
+import { createTheme } from '@mui/material/styles';
+
+
 import './App.css';
 
 function App() {
   const dispatch = useDispatch();
+
+  const theme = createTheme({
+    status: {
+      danger: '#e53e3e',
+    },
+    palette: {
+      primary: {
+        main: '#f9a03f',
+        darker: '#053e85',
+      },
+      neutral: {
+        main: '#64748B',
+        contrastText: '#fff',
+      },
+    },
+  });
 
   const user = useSelector(store => store.user);
 
