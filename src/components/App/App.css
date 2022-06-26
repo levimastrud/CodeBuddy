@@ -4,6 +4,14 @@ body,
   height: 100%;
 }
 
+:root {
+  --blue: #76a3db;
+  --orange: #f9a03f;
+  --white: #f1fbed;
+  --green: #558b6e;
+  --slate: #5f5566;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
@@ -41,11 +49,10 @@ button:hover {
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
-  color: #f8f8f8;
+  background-color: var(--blue);
+  color: var(--white);
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
@@ -67,7 +74,6 @@ button:hover {
 }
 
 .btn:hover {
-  background-color: #008183;
   text-decoration: none;
 }
 
@@ -141,13 +147,38 @@ input {
   text-align: center;
 }
 
-.topic button{
-  background-color: white;
-  color:#008183;
+.topic button {
+  background-color: var(--blue);
+  color: var(--white);
   border: 2px solid #008183;
   border-radius: 2px;
   font-size: 2.5em;
   margin: .5em;
+}
+
+.homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 47%, rgba(241, 251, 237, 1) 100%);
+}
+
+.homepage button {
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  padding: 1em;
+}
+
+.homepage h2 {
+  margin-bottom: 1em;
 }
 
 .flex-wrapper {
@@ -170,10 +201,6 @@ input {
   height: 60vh;
 }
 
-.task {
-  width: 25em;
-}
-
 .code {
   display: flex;
   justify-content: flex-start;
@@ -185,12 +212,12 @@ input {
 textarea {
   height: 25em;
   width: 40em;
-  background-color: #292929;
+  background-color: black;
   resize: none;
-  color: #b1d4f3;
+  color: var(--blue);
 }
 
-.pageButtons button{
+.pageButtons button {
   margin: .5em;
   background-color: #008183;
   color: white;
@@ -224,8 +251,39 @@ iframe {
   flex-direction: column;
 }
 
-.quiz button{
+.quiz button {
   margin: .5em;
   width: 50em;
   height: 5em;
+}
+
+.code-buddy {
+  width: 10em;
+  margin-right: .5em;
+}
+
+.code-buddy-large {
+  width: 25em;
+  margin: 3em 0 3em 0;
+}
+
+.code-buddy-xtra-large {
+  width: 45em;
+  margin: 5em 0 3em 0;
+}
+
+.task {
+  width: 20em;
+  background: var(--white);
+  background: linear-gradient(90deg, var(--white) 55%, rgb(255, 255, 247) 70%);
+  padding: 1em;
+  border: .3em solid black;
+  border-radius: 15px;
+}
+
+.task-and-cb {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
 }

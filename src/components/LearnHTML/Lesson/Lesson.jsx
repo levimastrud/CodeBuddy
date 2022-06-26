@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import CB_Default from '../CodeBuddy Graphics/CB_Default.svg'
 
 function Lesson(props) {
 
@@ -59,7 +60,10 @@ function Lesson(props) {
                 <h2>{lesson}</h2>
             </div>
             <div className="code">
+                <div className='task-and-cb'>
+                    <img className='code-buddy' src={CB_Default}></img>
                     <h2 className="task">{task}</h2>
+                </div>
                 <textarea value={codeBlock} onChange={(e) => {
                     dispatch({ type: 'SET_CODE_BLOCK', payload: e.target.value });
                 }}></textarea>

@@ -31,7 +31,7 @@ function Images() {
             if (parsedExpanded.length < 5) {
                 dispatch({ type: 'SET_ANSWER', payload: 'Incorrect' });
             }
-            if (parsedExpanded[3].nodeName === 'IMG' && parsedExpanded[3].attributes === 2) {
+            if (parsedExpanded[3].nodeName === 'IMG' && parsedExpanded[3].ATTRIBUTE_NODE === 2) {
                 dispatch({ type: 'SET_ANSWER', payload: 'Correct' });
             } else {
                 dispatch({ type: 'SET_ANSWER', payload: 'Incorrect' });

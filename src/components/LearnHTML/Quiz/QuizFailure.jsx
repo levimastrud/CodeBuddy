@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import CB_Sad from '../CodeBuddy Graphics/CB_Sad.svg'
 
 function QuizFailure(props) {
     const user = useSelector((store) => store.user);
@@ -21,6 +22,7 @@ function QuizFailure(props) {
             <h1>Better luck next time, {user.name}!</h1>
             <h1>A score of 3 is needed to proceed</h1>
             <h3>Your score: {quizTotal}</h3>
+            <img className = 'code-buddy-large' src = {CB_Sad}></img>
             <button onClick={() => {
                 dispatch({type: 'CLEAR_TOTAL'});
                 history.push('/quiz-page-one');

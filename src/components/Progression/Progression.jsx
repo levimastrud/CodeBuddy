@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
+import Nav from '../Nav/Nav';
 import {
   HashRouter as Router,
   Redirect,
@@ -22,6 +23,8 @@ function Progression() {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
   return (
+    <>
+    <Nav/>
     <div className="container">
       <h1>Learn HTML: {progress < 0 ? 0: progress}% Complete</h1>
       <progress max={100} value = {progress}></progress>
@@ -63,6 +66,7 @@ function Progression() {
       {progress > 80 ? <Link to='/congratulations'><h1 className='ready'> Final Test </h1></Link> : <h1 className='not-ready'> Final Test </h1>}
       { user.final_results ? <p>Quiz Score: {user.final_results}</p> : ''}
     </div>
+    </>
   );
 }
 
