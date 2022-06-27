@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import CB_Logo from '../LearnHTML/CodeBuddy Graphics/CB_Logo.svg'
 import { Button } from '@mui/material';
+import HalfTone from '../LearnHTML/CodeBuddy Graphics/HalfToneGradient.svg'
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM

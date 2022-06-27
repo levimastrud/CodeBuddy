@@ -5,6 +5,7 @@ import Nav from '../Nav/Nav';
 import { LinearProgress } from '@mui/material';
 import swal from 'sweetalert';
 import { Button } from '@mui/material';
+import Swirls from '../LearnHTML/CodeBuddy Graphics/Swirls.svg'
 
 // Routing stuff
 
@@ -27,6 +28,7 @@ function Progression() {
     <div className='progression'>
       <Nav />
       <div>
+        <div className = 'background'/>
         <div className='container'>
           <h1>Learn HTML: {progress < 0 ? 0 : progress}% Complete</h1>
           <LinearProgress style = {{width:'80vw'}}variant="determinate" value={progress} />

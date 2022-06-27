@@ -7,14 +7,16 @@ body,
 :root {
   --blue: #76a3db;
   --orange: #f9a03f;
-  --white: #f1fbed;
-  --green: #558b6e;
+  --white: white;
+  --green: #daf8ce;
   --slate: #5f5566;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .button {
@@ -159,6 +161,7 @@ input {
 .ready-course {
   text-align: center;
   padding: .5em;
+  background-color: white;
   color: rgb(49, 49, 49);
   width: 40em;
   height: 10em;
@@ -184,6 +187,7 @@ input {
 .ready {
   text-align: center;
   padding: .5em;
+  background-color: white;
   color: rgb(49, 49, 49);
   width: 10em;
   height: 10em;
@@ -236,7 +240,7 @@ input {
   height: 100vh;
   overflow: hidden;
   background: rgb(255, 255, 255);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 47%, rgba(241, 251, 237, 1) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 47%, #daf8ce 100%);
 }
 
 .homepage button {
@@ -323,6 +327,8 @@ iframe {
   flex-direction: column;
   overflow: hidden;
   height: 100vh;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 47%, #daf8ce 100%);
 }
 
 .quiz button {
@@ -377,4 +383,27 @@ iframe {
 .lesson::-webkit-scrollbar-thumb {
   background: var(--blue);
   border-radius: 10px;
+}
+
+.background {
+  background-image: url(../LearnHTML/CodeBuddy\ Graphics/Swirls.svg) no-repeat center center fixed; 
+  position: absolute;
+  top: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -1;
+  opacity: 20%;
+}
+
+.curcuit {
+  position: absolute;
+  top: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -1;
+  opacity: 20%;
 }

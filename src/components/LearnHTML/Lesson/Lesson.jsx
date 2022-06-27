@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CB_Default from '../CodeBuddy Graphics/CB_Default.svg';
+import Circuit from '../CodeBuddy Graphics/Curcuit.svg'
 
 function Lesson(props) {
 
@@ -56,6 +57,7 @@ function Lesson(props) {
 
     return (
         <div className="flex-wrapper">
+            <img src={Circuit} className = 'curcuit'/>
             <div className="lesson">
                 <h2>{lesson}</h2>
             </div>
