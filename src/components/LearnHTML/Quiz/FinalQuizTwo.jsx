@@ -24,7 +24,7 @@ function FinalQuizTwo(props) {
                 backgroundColor: "#76a3db"
             }} variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o5.value })
-                history.push('/`final-quiz-three`')
+                history.push('/final-quiz-three')
             }}>{quiz.o5.question}</Button>
             <Button style={{
                 borderRadius: 35,

@@ -21,6 +21,7 @@ function Progression() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
+    dispatch({ type: 'SET_ANSWER', payload: '' });
   }, [dispatch]);
   return (
     <div className='progression'>
@@ -49,7 +50,7 @@ function Progression() {
                   });
                   await axios.post('/api/user/reset', { username: user.username })
                   dispatch({ type: 'CLEAR_TOTAL' });
-                  dispatch({ type: 'FETCH_USER' })
+                  dispatch({ type: 'FETCH_USER' });
                 } else {
                   swal("Mission aborted!");
                 }

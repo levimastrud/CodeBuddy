@@ -41,7 +41,7 @@ function FinalQuizTen(props) {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o39.value })
                 .then(quizTotal > 5 ? history.push('/final-quiz-results'): history.push('/final-quiz-failure'));
             }}>{quiz.o39.question}</Button> : ''}
-            {quiz.o50 ? <Button style={{
+            {quiz.o40 ? <Button style={{
                 borderRadius: 35,
                 backgroundColor: "#76a3db"
             }} variant = "contained" onClick={() => {

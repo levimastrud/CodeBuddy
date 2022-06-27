@@ -21,7 +21,7 @@ function FinalQuizFailure(props) {
     return (
         <div className='quiz'>
             <h1>Better luck next time, {user.name}!</h1>
-            <h1>A score of 3 is needed to proceed</h1>
+            <h1>A score of 5 is needed to proceed</h1>
             <h3>Your score: {quizTotal}</h3>
             <img className = 'code-buddy-large' src = {CB_Sad}></img>
             <Button style={{
@@ -29,7 +29,7 @@ function FinalQuizFailure(props) {
                 backgroundColor: "#76a3db"
             }} variant = 'contained' onClick={() => {
                 dispatch({type: 'CLEAR_TOTAL'});
-                history.push('/quiz-page-one');
+                history.push('/final-quiz-one');
                 }}>Retry quiz</Button>
             <Button style={{
                 borderRadius: 35,

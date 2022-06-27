@@ -110,11 +110,11 @@ function Images() {
         o11: { question: `<imgage src="photo of dogs" alt = "dogs.jpg">`, value: 0 },
         o12: { question: `<img src="photo of dogs" alt = "dogs.jpg">`, value: 0 },
         // Fourth Question
-        question4: 'How many list items can go in a list?',
-        o13: { question: `List items don't go in lists`, value: 0 },
-        o14: { question: 'Five', value: 0 },
-        o15: { question: 'As many as you want', value: 1 },
-        o16: { question: 'Eleventeen', value: 0 },
+        question4: 'Which types of images are supported by the web?',
+        o13: { question: `JPEG`, value: 0 },
+        o14: { question: 'GIF', value: 0 },
+        o15: { question: 'PNG', value: 0 },
+        o16: { question: 'All of the above', value: 1 },
         // Fifth Question
         question5: 'The image tag does not have a closing tag.',
         o17: { question: 'True', value: 1 },
