@@ -168,6 +168,7 @@ input {
   border: 1px solid black;
   margin: .3em;
   border-radius: 10px;
+  filter: drop-shadow(0 0 .1em rgb(119, 119, 119));
 }
 
 .not-ready-course {
@@ -192,8 +193,9 @@ input {
   width: 10em;
   height: 10em;
   border: 1px solid black;
-  margin: .3em;
+  margin: .5em;
   border-radius: 10px;
+  filter: drop-shadow(0 0 .1em rgb(119, 119, 119));
 }
 
 .not-ready {
@@ -205,7 +207,7 @@ input {
   height: 10em;
   opacity: 20%;
   border: 1px solid black;
-  margin: .3em;
+  margin: .5em;
   border-radius: 10px;
 }
 
@@ -385,18 +387,6 @@ iframe {
   border-radius: 10px;
 }
 
-.background {
-  background-image: url(../LearnHTML/CodeBuddy\ Graphics/Swirls.svg) no-repeat center center fixed; 
-  position: absolute;
-  top: 0;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  z-index: -1;
-  opacity: 20%;
-}
-
 .curcuit {
   position: absolute;
   top: 0;
@@ -405,5 +395,16 @@ iframe {
   -o-background-size: cover;
   background-size: cover;
   z-index: -1;
-  opacity: 20%;
+  opacity: 100%;
+}
+
+.swirlBG {
+  position: absolute;
+  top: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -1;
+  opacity: 50%;
 }

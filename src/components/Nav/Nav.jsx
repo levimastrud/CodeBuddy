@@ -29,10 +29,6 @@ function Nav() {
           Courses
         </Link>
 
-
-        <Link className="navLink" to="/about">
-          About
-        </Link>
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>

@@ -13,7 +13,7 @@ function CoursesPage() {
     return (
         <>
             <Nav />
-            <div className = 'background'/>
+            <img src = {Swirls} className = 'swirlBG'/>
             <div className="courses">
                 <Link to='/progression'><div className='ready-course'> <h1>Learn HTML</h1> <p>Learn the standard markup language used by most of the web today.</p></div></Link>
                 <div className='not-ready-course'> <h1>Learn CSS</h1> </div>

@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Lesson from '../../Lesson/Lesson';
 import Quiz from '../../Quiz/QuizPageOne';
-import { IconButton } from '@mui/material';
-import EastIcon from '@mui/icons-material/East';
 
 function Images() {
     const user = useSelector((store) => store.user);
@@ -157,12 +155,6 @@ function Images() {
                     isReady();
                 }}>Next</button>
             </div >
-
-            {answer === 'Correct' ? <IconButton onClick={() => {
-                    isReady();
-                }}>
-                <EastIcon />
-            </IconButton>: ''}
         </>
     );
 }

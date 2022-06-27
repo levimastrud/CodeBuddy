@@ -27,11 +27,11 @@ function Progression() {
   return (
     <div className='progression'>
       <Nav />
+      <img src={Swirls} className='swirlBG' />
       <div>
-        <div className = 'background'/>
         <div className='container'>
           <h1>Learn HTML: {progress < 0 ? 0 : progress}% Complete</h1>
-          <LinearProgress style = {{width:'80vw'}}variant="determinate" value={progress} />
+          <LinearProgress style={{ width: '80vw' }} variant="determinate" value={progress} />
           <br />
           <Button style={{
             borderRadius: 35,

@@ -90,7 +90,7 @@ function UnorderedAndOrdered() {
                 />
                 <button className='pageButtons' onClick={() => {
                     // Stops user from backwards progression
-                    history.push('/list-item')
+                    history.push('/progression')
                 }
                 }
                 > Back </button>
