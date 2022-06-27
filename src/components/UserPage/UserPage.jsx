@@ -1,8 +1,9 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import CB_Logo from '../LearnHTML/CodeBuddy Graphics/CB_Logo.svg'
+import { Button } from '@mui/material';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -12,7 +13,10 @@ function UserPage() {
     <div className="homepage">
       <img src={CB_Logo} className='code-buddy-xtra-large'></img>
       <h2>Hello, {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h2>
-      <button onClick={() => history.push('/courses')}>Jump right in!</button>
+      <Button style={{
+        borderRadius: 35,
+        backgroundColor: "#76a3db"
+      }} variant="contained" onClick={() => history.push('/courses')}>Jump right in!</Button>
     </div>
   );
 }

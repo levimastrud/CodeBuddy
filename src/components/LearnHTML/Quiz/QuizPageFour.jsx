@@ -19,19 +19,31 @@ function QuizPageFour(props) {
     return (
         <div className='quiz'>
             <h1>{quiz.question4}</h1>
-            <Button variant = "contained" onClick={() => {
+            <Button style={{
+                borderRadius: 35,
+                backgroundColor: "#76a3db"
+            }} variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o13.value })
                 history.push('/quiz-page-five')
             }}>{quiz.o13.question}</Button>
-            <Button variant = "contained" onClick={() => {
+            <Button style={{
+                borderRadius: 35,
+                backgroundColor: "#76a3db"
+            }} variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o14.value })
                 history.push('/quiz-page-five')
             }}>{quiz.o14.question}</Button>
-            <Button variant = "contained" onClick={() => {
+            <Button style={{
+                borderRadius: 35,
+                backgroundColor: "#76a3db"
+            }} variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o15.value })
                 history.push('/quiz-page-five')
             }}>{quiz.o15.question}</Button>
-            <Button variant = "contained" onClick={() => {
+            <Button style={{
+                borderRadius: 35,
+                backgroundColor: "#76a3db"
+            }} variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o16.value })
                 history.push('/quiz-page-five')
                 }}>{quiz.o16.question}</Button>

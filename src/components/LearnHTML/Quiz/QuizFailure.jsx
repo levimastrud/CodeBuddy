@@ -24,11 +24,16 @@ function QuizFailure(props) {
             <h1>A score of 3 is needed to proceed</h1>
             <h3>Your score: {quizTotal}</h3>
             <img className = 'code-buddy-large' src = {CB_Sad}></img>
-            <Button variant = 'contained' onClick={() => {
+            <Button style={{
+                borderRadius: 35,
+                backgroundColor: "#76a3db"
+            }} variant = 'contained' onClick={() => {
                 dispatch({type: 'CLEAR_TOTAL'});
                 history.push('/quiz-page-one');
                 }}>Retry quiz</Button>
-            <Button variant = 'outlined' onClick = {() => {
+            <Button style={{
+                borderRadius: 35,
+            }} variant = 'outlined' onClick = {() => {
                 dispatch({type: 'CLEAR_TOTAL'});
                 history.push('/progression');
             }}>Back</Button>

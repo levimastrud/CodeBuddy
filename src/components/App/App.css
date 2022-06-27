@@ -17,6 +17,10 @@ body {
   margin: 0px;
 }
 
+.button {
+  background-color: #76a3db;
+}
+
 a,
 a:visited,
 a:active,
@@ -35,7 +39,7 @@ Container
 -------------------------------------------------------------------------------- */
 
 .container {
-  padding: 20px;
+  margin: 3em 1em 1em 3em;
 }
 
 /* --------------------------------------------------------------------------------
@@ -131,12 +135,49 @@ input {
 
 /* --------------------- LESSON PAGE ------------------------------ */
 
+.html-topic {
+  font-size: 5vw;
+  color: var(--orange);
+}
+
+.topics {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin: 3em 1em 1em 3em;
+  width: 85vw;
+}
+
+.courses {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 3em 1em 1em 3em;
+}
+
 .ready {
+  text-align: center;
+  padding: .5em;
   color: rgb(49, 49, 49);
+  width: 10em;
+  height: 10em;
+  border: 1px solid black;
+  margin: .3em;
+  border-radius: 10px;
 }
 
 .not-ready {
-  color: rgb(157, 157, 157);
+  text-align: center;
+  padding: .5em;
+  color: rgb(0, 0, 0);
+  background-color: rgb(80, 80, 80);
+  width: 10em;
+  height: 10em;
+  opacity: 20%;
+  border: 1px solid black;
+  margin: .3em;
+  border-radius: 10px;
 }
 
 .hide-hint {
@@ -148,9 +189,10 @@ input {
 }
 
 .topic button {
+  text-align: center;
   background-color: var(--blue);
   color: var(--white);
-  border: 2px solid #008183;
+  border: none;
   border-radius: 2px;
   font-size: 2.5em;
   margin: .5em;
@@ -218,8 +260,8 @@ textarea {
 }
 
 .pageButtons button {
-  margin: .5em;
-  background-color: #008183;
+  margin: .5em 1em .5em 1em;
+  background-color: var(--orange);
   color: white;
   border: none;
   border-radius: 2px;
@@ -249,6 +291,8 @@ iframe {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .quiz button {

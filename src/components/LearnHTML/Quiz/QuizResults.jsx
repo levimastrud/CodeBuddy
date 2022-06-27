@@ -37,7 +37,10 @@ function QuizResults(props) {
             <h1>Great job, {user.name}!</h1>
             <h1>Score: {quizTotal}</h1>
             <img src={CB_Happy} className = 'code-buddy-large'></img>
-            <Button onClick={() => resultsFunction()}>Next</Button>
+            <Button style={{
+                borderRadius: 35,
+                backgroundColor: "#76a3db"
+            }} variant = 'contained' onClick={() => resultsFunction()}>Next</Button>
         </div >
     );
 }
