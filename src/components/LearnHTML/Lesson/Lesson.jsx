@@ -11,6 +11,7 @@ function Lesson(props) {
     // Local state used only to toggle hint
 
     const [toggle, setToggle] = useState('hide-hint');
+    const [toggleSubmit, setToggleSubmit] = useState('show');
 
     // Supports tabbing inside code block
 
@@ -57,7 +58,7 @@ function Lesson(props) {
 
     return (
         <div className="flex-wrapper">
-            <img src={Circuit} className = 'curcuit'/>
+            <img src={Circuit} className='curcuit' />
             <div className="lesson">
                 <h2>{lesson}</h2>
             </div>
@@ -72,13 +73,22 @@ function Lesson(props) {
                 <h3 className={toggle}>{hint}</h3>
                 <div className="pageButtons">
                     <button onClick={() => toggle ? setToggle('') : setToggle('hide-hint')}>Hint</button>
-                    <button onClick={() => dispatch({ type: 'SET_CODE_BLOCK', payload: viewSolution })}>View Solution</button>
+                    {toggleSubmit ? <button onClick={() => {
+                        if (!toggleSubmit) {
+                            setToggleSubmit('show');
+                        } else {
+                            setToggleSubmit('');
+                        }
+                        dispatch({ type: 'SET_CODE_BLOCK', payload: viewSolution })
+                    }
+                    }>View Solution</button> : ''}
                     <button onClick={() => {
                         dispatch({ type: 'SET_CODE_BLOCK', payload: defaultAnswer })
                         dispatch({ type: 'SET_ANSWER', payload: '' });
+                        setToggleSubmit('show');
                     }
                     }>Reset</button>
-                    <button onClick={() => checkAnswer(codeBlock)}>Submit</button>
+                    {toggleSubmit ? <button onClick={() => checkAnswer(codeBlock)}>Submit</button> : ''}
                     <h1>{answer ? answer + '!' : ''}</h1>
                 </div>
             </div>
