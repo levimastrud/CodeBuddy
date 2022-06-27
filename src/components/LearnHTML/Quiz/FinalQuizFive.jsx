@@ -4,11 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Button } from '@mui/material';
 
-function QuizPageFive(props) {
+function FinalQuizFive(props) {
     const user = useSelector((store) => store.user);
     const quiz = useSelector((store) => store.quiz);
-    let quizTotal = useSelector((store) => store.quizTotal);
-    console.log(quizTotal)
+    console.log(quiz)
 
     const dispatch = useDispatch();
     const history = useHistory()
@@ -20,36 +19,36 @@ function QuizPageFive(props) {
     return (
         <div className='quiz'>
             <h1>{quiz.question5}</h1>
-            {quiz.o17 ? <Button style={{
+            <Button style={{
                 borderRadius: 35,
                 backgroundColor: "#76a3db"
             }} variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o17.value })
-                .then(quizTotal > 2 ? history.push('/quiz-results'): history.push('/quiz-failure'));
-            }}>{quiz.o17.question}</Button>: ''}
-            {quiz.o18 ? <Button style={{
+                history.push('/final-quiz-six')
+            }}>{quiz.o17.question}</Button>
+            <Button style={{
                 borderRadius: 35,
                 backgroundColor: "#76a3db"
             }} variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o18.value })
-                .then(quizTotal > 2 ? history.push('/quiz-results'): history.push('/quiz-failure'));
-            }}>{quiz.o18.question}</Button> : ''}
-            {quiz.o19 ? <Button style={{
+                history.push('/final-quiz-six')
+            }}>{quiz.o18.question}</Button>
+            <Button style={{
                 borderRadius: 35,
                 backgroundColor: "#76a3db"
             }} variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o19.value })
-                .then(quizTotal > 2 ? history.push('/quiz-results'): history.push('/quiz-failure'));
-            }}>{quiz.o19.question}</Button> : ''}
-            {quiz.o20 ? <Button style={{
+                history.push('/final-quiz-six')
+            }}>{quiz.o19.question}</Button>
+            <Button style={{
                 borderRadius: 35,
                 backgroundColor: "#76a3db"
             }} variant = "contained" onClick={() => {
                 dispatch({ type: 'ADD_QUIZ_TOTAL', payload: quiz.o20.value })
-                .then(quizTotal > 2 ? history.push('/quiz-results'): history.push('/quiz-failure'));
-                }}>{quiz.o20.question}</Button> : ''}
+                history.push('/final-quiz-six')
+                }}>{quiz.o16.question}</Button>
         </div >
     );
 }
 
-export default QuizPageFive;
+export default FinalQuizFive;

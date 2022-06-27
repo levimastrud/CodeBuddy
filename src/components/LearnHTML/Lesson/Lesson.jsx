@@ -73,11 +73,11 @@ function Lesson(props) {
                     <button onClick={() => dispatch({ type: 'SET_CODE_BLOCK', payload: viewSolution })}>View Solution</button>
                     <button onClick={() => {
                         dispatch({ type: 'SET_CODE_BLOCK', payload: defaultAnswer })
-                        dispatch({ type: 'SET_ANSWER', payload: '' })
+                        dispatch({ type: 'SET_ANSWER', payload: '' });
                     }
                     }>Reset</button>
                     <button onClick={() => checkAnswer(codeBlock)}>Submit</button>
-                    <h1>{answer}</h1>
+                    <h1>{answer ? answer + '!' : ''}</h1>
                 </div>
             </div>
             <div className="preview">

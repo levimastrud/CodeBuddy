@@ -63,6 +63,21 @@ import QuizPageFive from '../LearnHTML/Quiz/QuizPageFive';
 import QuizResults from '../LearnHTML/Quiz/QuizResults';
 import QuizFailure from '../LearnHTML/Quiz/QuizFailure';
 
+// Final Quiz
+
+import FinalQuizOne from '../LearnHTML/Quiz/FinalQuizOne';
+import FinalQuizTwo from '../LearnHTML/Quiz/FinalQuizTwo';
+import FinalQuizThree from '../LearnHTML/Quiz/FinalQuizThree';
+import FinalQuizFour from '../LearnHTML/Quiz/FinalQuizFour';
+import FinalQuizFive from '../LearnHTML/Quiz/FinalQuizFive';
+import FinalQuizSix from '../LearnHTML/Quiz/FinalQuizSix';
+import FinalQuizSeven from '../LearnHTML/Quiz/FinalQuizSeven';
+import FinalQuizEight from '../LearnHTML/Quiz/FinalQuizEight';
+import FinalQuizNine from '../LearnHTML/Quiz/FinalQuizNine';
+import FinalQuizTen from '../LearnHTML/Quiz/FinalQuizTen';
+import FinalQuizFailure from '../LearnHTML/Quiz/FinalQuizFailure';
+import FinalQuizResults from '../LearnHTML/Quiz/FinalQuizResults';
+
 // Theme
 
 import { createTheme } from '@mui/material/styles';
@@ -265,6 +280,8 @@ function App() {
             <FinalTest />
           </Route>
 
+          {/* --------------------- QUIZZES ------------------- */}
+
           <Route
             exact
             path="/quiz-page-one"
@@ -313,6 +330,93 @@ function App() {
           >
             <QuizFailure />
           </Route>
+
+          {/* --------------------- FINAL QUIZ ------------------- */}
+
+          <Route
+            exact
+            path="/final-quiz-one"
+          >
+            <FinalQuizOne />
+          </Route>
+
+          <Route
+            exact
+            path="/final-quiz-two"
+          >
+            <FinalQuizTwo />
+          </Route>
+
+          <Route
+            exact
+            path="/final-quiz-three"
+          >
+            <FinalQuizThree />
+          </Route>
+
+          <Route
+            exact
+            path="/final-quiz-four"
+          >
+            <FinalQuizFour />
+          </Route>
+
+          <Route
+            exact
+            path="/final-quiz-five"
+          >
+            <FinalQuizFive />
+          </Route>
+
+          <Route
+            exact
+            path="/final-quiz-six"
+          >
+            <FinalQuizSix />
+          </Route>
+
+          <Route
+            exact
+            path="/final-quiz-seven"
+          >
+            <FinalQuizSeven />
+          </Route>
+
+          <Route
+            exact
+            path="/final-quiz-eight"
+          >
+            <FinalQuizEight />
+          </Route>
+
+          <Route
+            exact
+            path="/final-quiz-nine"
+          >
+            <FinalQuizNine />
+          </Route>
+
+          <Route
+            exact
+            path="/final-quiz-ten"
+          >
+            <FinalQuizTen />
+          </Route>
+
+          <Route
+            exact
+            path="/final-quiz-failure"
+          >
+            <FinalQuizFailure />
+          </Route>
+
+          <Route
+            exact
+            path="/final-quiz-results"
+          >
+            <FinalQuizResults />
+          </Route>
+
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
