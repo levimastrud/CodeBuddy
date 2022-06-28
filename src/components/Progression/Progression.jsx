@@ -33,7 +33,7 @@ function Progression() {
       <img src={Swirls} className='swirlBG' />
       <div>
         <div className='container'>
-          <p><i><span className='username'>{progress === 100 ? `${welcomeName} is an HTML jedi`: welcomeName}</span></i></p>
+          <p><i><span className='username'>{progress === 100 ? `${welcomeName} is an HTML jedi`: `${welcomeName} is an HTML padawan`}</span></i></p>
           <h1>Learn HTML: {progress < 0 ? 0 : progress}% Complete</h1>
           <LinearProgress style={{ width: '80vw' }} variant="determinate" value={progress} />
           <br />

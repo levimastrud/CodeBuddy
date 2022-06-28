@@ -34,7 +34,7 @@ function FinalQuizResults(props) {
     }, [dispatch]);
 
     return (
-        <div className='quiz'>
+        <div className='final-quiz'>
             <img src={Confetti} className='confetti' />
             <h1>Great job, {user.name}!</h1>
             <h1>Score: {quizTotal}</h1>

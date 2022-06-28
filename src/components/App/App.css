@@ -329,7 +329,7 @@ iframe {
 
 /* ------------------ QUIZ -------------------------- */
 
-.quiz {
+.quiz, .final-quiz {
   text-align: center;
   display: flex;
   justify-content: center;
@@ -337,6 +337,10 @@ iframe {
   flex-direction: column;
   overflow: hidden;
   height: 100vh;
+
+}
+
+.quiz {
   background: rgb(255, 255, 255);
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 47%, #daf8ce 100%);
 }
@@ -355,6 +359,11 @@ iframe {
 .code-buddy:active {
   cursor: pointer;
   animation: shake 1s;
+}
+
+.code-buddy:hover {
+  cursor: pointer;
+  fill: var(--orange);
 }
 
 .code-buddy-large {
@@ -421,10 +430,12 @@ iframe {
 }
 
 .confetti {
-  top: 0;
+  top: -5em;
   position: absolute;
-  z-index: 0;
-  opacity: 50%;
+  z-index: -3;
+  opacity: 30%;
+  height: 200%;
+  width: 200%;
 }
 
 .username {
@@ -437,9 +448,9 @@ iframe {
 
 @keyframes jiggle {
   from, to { transform: scale(1, 1); }
-  25% { transform: scale(0.95, 1.1); }
-  50% { transform: scale(1.1, 0.95); }
-  75% { transform: scale(0.95, 1.05); }
+  25% { transform: scale(0.99, 1.05); }
+  50% { transform: scale(1.05, 0.99); }
+  75% { transform: scale(0.99, 1.02); }
 }
 
 @keyframes shake {
