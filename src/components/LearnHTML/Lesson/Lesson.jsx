@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import CB_Default from '../CodeBuddy Graphics/CB_Default.svg';
 import CB_Blink from '../CodeBuddy Graphics/CB_Blink.svg';
 import CB_Annoyed from '../CodeBuddy Graphics/CB_Annoyed.svg';
+import CB_Tongue from '../CodeBuddy Graphics/CB_Tongue.svg';
+import CB_Evil from '../CodeBuddy Graphics/CB_Evil.svg';
 import Circuit from '../CodeBuddy Graphics/Curcuit.svg'
 
 function Lesson(props) {
@@ -16,6 +18,7 @@ function Lesson(props) {
     const [toggleSubmit, setToggleSubmit] = useState('show');
     const [annoyed, setAnnoyed] = useState(false);
     const [cbStatus, setCbStatus] = useState(CB_Default);
+    const [clicks, setClicks] = useState(0);
 
     // Supports tabbing inside code block
 
@@ -53,26 +56,31 @@ function Lesson(props) {
     let task = props.task;
     let checkAnswer = props.checkAnswer;
 
-    // Styles code elements in lesson 
-
-    const stringSpanner = (text) => {
-        let spannedLesson = text.replace('<h1>', "<span class = 'spannedLesson'><h1></span>");
-        console.log(spannedLesson)
-        lesson = spannedLesson;
-    };
+    // Gets called when code buddy is clicked on
 
     const annoyCB = () => {
+        if (clicks < 20) {
         setTimeout(
             () => {
                 setAnnoyed(true)
-            }, 
+            },
             0
-          );
-          setTimeout(
-            () => setAnnoyed(false), 
+        );
+        setTimeout(
+            () => setAnnoyed(false),
             700
-          );
+        );
+        }
     }
+
+    const coolCB = () => {
+        if (clicks > 20) {
+            setCbStatus(CB_Evil);
+        }
+        console.log(clicks)
+    }
+
+    // Constantly runs when page is loaded - makes code buddy blink
 
     const blinkCB = () => {
         setInterval(
@@ -80,20 +88,34 @@ function Lesson(props) {
                 setTimeout(
                     () => {
                         setCbStatus(CB_Blink)
-                    }, 
+                    },
                     0
-                  );
-                  setTimeout(
-                    () => setCbStatus(CB_Default), 
+                );
+                setTimeout(
+                    () => setCbStatus(CB_Default),
                     300
-                  )
-            }, 
+                )
+            },
             5000
-          );
-        //   setInterval(
-        //     () => setCbStatus(CB_Default), 
-        //     4000
-        //   );
+        );
+    }
+
+    const tongueCB = () => {
+        setInterval(
+            () => {
+                setTimeout(
+                    () => {
+                        setCbStatus(CB_Tongue)
+                    },
+                    0
+                );
+                setTimeout(
+                    () => setCbStatus(CB_Default),
+                    1000
+                )
+            },
+            30000
+        );
     }
 
     // useEffect will fetch most up to date answer and code block on load
@@ -101,8 +123,8 @@ function Lesson(props) {
     useEffect(() => {
         dispatch({ type: 'GET_CODE_BLOCK' });
         dispatch({ type: 'SET_ANSWER', payload: '' });
-        stringSpanner(lesson);
         blinkCB();
+        tongueCB();
     }, [dispatch]);
 
     return (
@@ -113,7 +135,11 @@ function Lesson(props) {
             </div>
             <div className="code">
                 <div className='task-and-cb'>
-                    <img className='code-buddy' onClick={() => annoyCB()} src={annoyed ? CB_Annoyed : cbStatus}></img>
+                    <img className='code-buddy' onClick={() => {
+                        annoyCB();
+                        setClicks(clicks+1);
+                        coolCB();
+                    }} src={annoyed ? CB_Annoyed : cbStatus}></img>
                     <h2 className="task">{task}</h2>
                 </div>
                 <textarea value={codeBlock} onChange={(e) => {
