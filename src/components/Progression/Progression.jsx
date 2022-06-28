@@ -17,6 +17,7 @@ function Progression() {
   let progress = user.recent_topic_completed * 10;
 
   console.log('progress:', progress)
+  let welcomeName = user.name ? user.name.charAt(0).toUpperCase() + user.name.slice(1): '';
 
   // Fetches updated user information on page load
 
@@ -30,6 +31,7 @@ function Progression() {
       <img src={Swirls} className='swirlBG' />
       <div>
         <div className='container'>
+          <p><i><span className='username'>{welcomeName}</span></i></p>
           <h1>Learn HTML: {progress < 0 ? 0 : progress}% Complete</h1>
           <LinearProgress style={{ width: '80vw' }} variant="determinate" value={progress} />
           <br />

@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CB_Default from '../CodeBuddy Graphics/CB_Default.svg';
+import CB_Blink from '../CodeBuddy Graphics/CB_Blink.svg';
+import CB_Annoyed from '../CodeBuddy Graphics/CB_Annoyed.svg';
 import Circuit from '../CodeBuddy Graphics/Curcuit.svg'
 
 function Lesson(props) {
@@ -12,6 +14,8 @@ function Lesson(props) {
 
     const [toggle, setToggle] = useState('hide-hint');
     const [toggleSubmit, setToggleSubmit] = useState('show');
+    const [annoyed, setAnnoyed] = useState(false);
+    const [cbStatus, setCbStatus] = useState(CB_Default);
 
     // Supports tabbing inside code block
 
@@ -49,22 +53,67 @@ function Lesson(props) {
     let task = props.task;
     let checkAnswer = props.checkAnswer;
 
+    // Styles code elements in lesson 
+
+    const stringSpanner = (text) => {
+        let spannedLesson = text.replace('<h1>', "<span class = 'spannedLesson'><h1></span>");
+        console.log(spannedLesson)
+        lesson = spannedLesson;
+    };
+
+    const annoyCB = () => {
+        setTimeout(
+            () => {
+                setAnnoyed(true)
+            }, 
+            0
+          );
+          setTimeout(
+            () => setAnnoyed(false), 
+            700
+          );
+    }
+
+    const blinkCB = () => {
+        setInterval(
+            () => {
+                setTimeout(
+                    () => {
+                        setCbStatus(CB_Blink)
+                    }, 
+                    0
+                  );
+                  setTimeout(
+                    () => setCbStatus(CB_Default), 
+                    300
+                  )
+            }, 
+            5000
+          );
+        //   setInterval(
+        //     () => setCbStatus(CB_Default), 
+        //     4000
+        //   );
+    }
+
     // useEffect will fetch most up to date answer and code block on load
 
     useEffect(() => {
         dispatch({ type: 'GET_CODE_BLOCK' });
-        dispatch({ type: 'GET_ANSWER' });
+        dispatch({ type: 'SET_ANSWER', payload: '' });
+        stringSpanner(lesson);
+        blinkCB();
     }, [dispatch]);
 
     return (
         <div className="flex-wrapper">
             <img src={Circuit} className='curcuit' />
             <div className="lesson">
-                <h2>{lesson}</h2>
+                <p>{lesson}</p>
             </div>
             <div className="code">
                 <div className='task-and-cb'>
-                    <img className='code-buddy' src={CB_Default}></img>
+                    <img className='code-buddy' onClick={() => annoyCB()} src={annoyed ? CB_Annoyed : cbStatus}></img>
                     <h2 className="task">{task}</h2>
                 </div>
                 <textarea value={codeBlock} onChange={(e) => {
