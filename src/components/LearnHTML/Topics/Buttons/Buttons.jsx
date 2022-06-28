@@ -67,6 +67,7 @@ function Buttons() {
                 <br>
                 <label for = 'input2'>Last Name:</label>
                 <input id = 'input2'>
+                <!-- YOUR CODE HERE -->
             </form>
         </body>
     </html>

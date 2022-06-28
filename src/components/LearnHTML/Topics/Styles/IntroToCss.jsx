@@ -52,6 +52,7 @@ function IntroToCSS() {
     let defaultAnswer = `
     <html>
         <head>
+            <!-- YOUR CODE HERE -->
         </head>
         <body>
         </body>
