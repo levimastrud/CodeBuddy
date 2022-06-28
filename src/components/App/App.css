@@ -420,6 +420,13 @@ iframe {
   opacity: 70%;
 }
 
+.confetti {
+  top: 0;
+  position: absolute;
+  z-index: 0;
+  opacity: 50%;
+}
+
 .username {
   opacity: 40%;
 }

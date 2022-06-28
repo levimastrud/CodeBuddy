@@ -6,6 +6,7 @@ import { LinearProgress } from '@mui/material';
 import swal from 'sweetalert';
 import { Button } from '@mui/material';
 import Swirls from '../LearnHTML/CodeBuddy Graphics/Swirls.svg'
+import Confetti from '../LearnHTML/CodeBuddy Graphics/Confetti.svg'
 
 // Routing stuff
 
@@ -28,10 +29,11 @@ function Progression() {
   return (
     <div className='progression'>
       <Nav />
+      {progress === 100 ? <img className = 'confetti' src = {Confetti}/> : ''}
       <img src={Swirls} className='swirlBG' />
       <div>
         <div className='container'>
-          <p><i><span className='username'>{welcomeName}</span></i></p>
+          <p><i><span className='username'>{progress === 100 ? `${welcomeName} is an HTML jedi`: welcomeName}</span></i></p>
           <h1>Learn HTML: {progress < 0 ? 0 : progress}% Complete</h1>
           <LinearProgress style={{ width: '80vw' }} variant="determinate" value={progress} />
           <br />

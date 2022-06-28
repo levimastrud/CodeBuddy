@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import CB_Happy from '../CodeBuddy Graphics/CB_Happy.svg'
+import CB_Graduation from '../CodeBuddy Graphics/CB_Graduation.svg'
+import Confetti from '../CodeBuddy Graphics/Confetti.svg'
 import { Button } from '@mui/material';
 
 function FinalQuizResults(props) {
@@ -34,13 +35,14 @@ function FinalQuizResults(props) {
 
     return (
         <div className='quiz'>
+            <img src={Confetti} className='confetti' />
             <h1>Great job, {user.name}!</h1>
             <h1>Score: {quizTotal}</h1>
-            <img src={CB_Happy} className = 'code-buddy-large'></img>
+            <img src={CB_Graduation} className='code-buddy-large'></img>
             <Button style={{
                 borderRadius: 35,
                 backgroundColor: "#76a3db"
-            }} variant = 'contained' onClick={() => resultsFunction()}>Next</Button>
+            }} variant='contained' onClick={() => resultsFunction()}>Next</Button>
         </div >
     );
 }

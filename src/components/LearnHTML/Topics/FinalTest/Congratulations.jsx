@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Button } from '@mui/material';
+import Confetti from '../../CodeBuddy Graphics/Confetti.svg'
 
 function Congratulations
     () {
@@ -36,7 +37,7 @@ function Congratulations
         question4: 'What does the href attribute do?',
         o13: { question: 'Opens the link in a new window', value: 0 },
         o14: { question: 'Specifies the text of the link', value: 0 },
-        o15: { question: 'Specifies where the link will go', value: 0 },
+        o15: { question: 'Specifies where the link will go', value: 1 },
         o16: { question: 'Provides a source for an image', value: 0 },
         // Fifth Question
         question5: 'How do you target an ID?',
@@ -71,7 +72,7 @@ function Congratulations
         // Tenth Question
         question10: 'Which is the proper order of elements?',
         o37: { question: 'Table -> Tr -> Thead -> Tr', value: 0 },
-        o38: { question: 'Table -> Thead -> Tr -> Td', value: 1 },
+        o38: { question: 'Table -> Thead -> Tr -> Td', value: 0 },
         o39: { question: 'Table -> Tr -> Thead -> Tbody', value: 0 },
         o40: { question: 'Table -> Thead -> Tr -> Th', value: 1 }
     }
