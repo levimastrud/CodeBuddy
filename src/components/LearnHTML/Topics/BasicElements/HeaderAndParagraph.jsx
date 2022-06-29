@@ -129,13 +129,13 @@ function HeaderAndParagraph() {
                     task={task}
                     checkAnswer={checkAnswer}
                 />
-                <button onClick={() => {
+                <button className = 'backButton' onClick={() => {
                     // Stops user from backwards progression
                     history.push('/progression')
                 }
                 }
                 > Back </button>
-                <button onClick={() => {
+                <button className = 'nextButton' onClick={() => {
                     // user.recent_topic_completed > 2 ? '' : axios.post('/api/user/next-topic', { username: user.username, nextTopic: 2 })
                     isReady();
                 }}>Next</button>

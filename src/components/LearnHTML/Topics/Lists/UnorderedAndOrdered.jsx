@@ -89,13 +89,13 @@ function UnorderedAndOrdered() {
                     task={task}
                     checkAnswer={checkAnswer}
                 />
-                <button className='pageButtons' onClick={() => {
+                <button className='backButton' onClick={() => {
                     // Stops user from backwards progression
                     history.push('/progression')
                 }
                 }
                 > Back </button>
-                <button className='pageButtons' onClick={() => {
+                <button className='nextButton' onClick={() => {
                     isReady();
                 }}>Next</button>
             </div >

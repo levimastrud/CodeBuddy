@@ -97,13 +97,13 @@ function Link() {
                     task={task}
                     checkAnswer={checkAnswer}
                 />
-                <button onClick={() => {
+                <button className = 'backButton' onClick={() => {
                     // Stops user from backwards progression
                     history.push('/progression')
                 }
                 }
                 > Back </button>
-                <button onClick={() => {
+                <button className = 'nextButton' onClick={() => {
                     isReady();
                 }}>Next</button>
             </div >

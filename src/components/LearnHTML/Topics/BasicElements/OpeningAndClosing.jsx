@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -88,13 +87,13 @@ function OpeningAndClosing() {
                     task={task}
                     checkAnswer={checkAnswer}
                 />
-                <button onClick={() => {
+                <button className = 'backButton' onClick={() => {
                     // Stops user from backwards progression
                     history.push('/progression')
                 }
                 }
                 > Back </button>
-                <button onClick={() => {
+                <button className = 'nextButton' onClick={() => {
                     isReady();
                 }}>Next</button>
             </div >

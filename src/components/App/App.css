@@ -15,8 +15,6 @@ body,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
-  height: 100vh;
-  overflow: hidden;
 }
 
 .button {
@@ -266,13 +264,11 @@ input {
   margin-bottom: 1em;
 }
 
-.flex-wrapper {
+/* .flex-wrapper {
   display: flex;
   justify-content: center;
-  height: 70vh;
-  width: 100vw;
   text-align: center;
-}
+} */
 
 .lesson {
   border-right: 1px solid black;
@@ -292,15 +288,27 @@ input {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  width: 80vw;
+  /* width: 80vw; */
 }
 
 textarea {
   height: 25em;
-  width: 40em;
+  width: 40vw;
   background-color: black;
   resize: none;
   color: var(--blue);
+}
+
+.backButton {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.nextButton {
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
 
 .pageButtons button {
@@ -378,6 +386,7 @@ iframe {
 
 .task {
   width: 20em;
+  overflow: scroll;
   background: var(--white);
   background: linear-gradient(90deg, var(--white) 55%, rgb(255, 255, 247) 70%);
   padding: 1em;
@@ -390,6 +399,7 @@ iframe {
   justify-content: center;
   align-items: center;
   margin: 1em;
+  width: 40vw;
 }
 
 /* SCROLL BAR FOR LESSON PAGES */
@@ -411,6 +421,7 @@ iframe {
 
 .curcuit {
   position: absolute;
+  height: 100vh;
   top: 0;
   right: 50px;
   -webkit-background-size: cover;
@@ -434,8 +445,8 @@ iframe {
   position: absolute;
   z-index: -3;
   opacity: 30%;
-  height: 200%;
-  width: 200%;
+  height: 100vh;
+  width: 100vw;
 }
 
 .username {
@@ -448,8 +459,8 @@ iframe {
 
 @keyframes jiggle {
   from, to { transform: scale(1, 1); }
-  25% { transform: scale(0.99, 1.05); }
-  50% { transform: scale(1.05, 0.99); }
+  25% { transform: scale(0.99, 1.02); }
+  50% { transform: scale(1.02, 0.99); }
   75% { transform: scale(0.99, 1.02); }
 }
 
