@@ -3,14 +3,15 @@
 <svg version="1.1" id="design" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 3724 2100" style="enable-background:new 0 0 3724 2100;" xml:space="preserve">
 <style type="text/css">
-	.st0{opacity:0.4;}
-	.st1{opacity:0.5;fill:#C4F0AF;enable-background:new    ;}
-	.st2{fill:#C4F0AF;}
-	.st3{fill:none;stroke:#C4F0AF;stroke-width:3;stroke-miterlimit:10;}
-	.st4{fill:none;stroke:#C4F0AF;stroke-width:1.9999;stroke-miterlimit:9.9996;}
-	.st5{fill:none;stroke:#C4F0AF;stroke-width:2;stroke-miterlimit:9.9999;}
-	.st6{fill:none;stroke:#C4F0AF;stroke-width:4.3916;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st7{fill:none;stroke:#C4F0AF;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st0{opacity:0.6;}
+	.st1{opacity:0.5;fill:#AED6F0;enable-background:new    ;}
+	.st2{fill:#AED6F0;}
+	.st3{opacity:0.4;}
+	.st4{fill:none;stroke:#AED6F0;stroke-width:3;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#AED6F0;stroke-width:1.9999;stroke-miterlimit:9.9996;}
+	.st6{fill:none;stroke:#AED6F0;stroke-width:2;stroke-miterlimit:9.9999;}
+	.st7{fill:none;stroke:#AED6F0;stroke-width:4.3916;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#AED6F0;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 </style>
 <g id="liquid_shapes" class="st0">
 	<g id="left">
@@ -44,12 +45,12 @@
 			C1712.8,284.3,1679.3,142.2,1667.1,0H3280.4z"/>
 	</g>
 </g>
-<g id="ornaments" class="st0">
+<g id="ornaments" class="st3">
 	<g id="circle_line">
-		<circle class="st3" cx="1488.3" cy="174.1" r="84.3"/>
+		<circle class="st4" cx="1488.3" cy="174.1" r="84.3"/>
 		
-			<ellipse transform="matrix(0.2298 -0.9732 0.9732 0.2298 1476.2025 3871.5847)" class="st4" cx="3184.2" cy="1003.1" rx="33.9" ry="33.9"/>
-		<ellipse class="st5" cx="543.9" cy="1361.5" rx="46.5" ry="46.5"/>
+			<ellipse transform="matrix(0.2298 -0.9732 0.9732 0.2298 1476.2025 3871.5847)" class="st5" cx="3184.2" cy="1003.1" rx="33.9" ry="33.9"/>
+		<ellipse class="st6" cx="543.9" cy="1361.5" rx="46.5" ry="46.5"/>
 	</g>
 	<g id="circle_shape">
 		<ellipse class="st2" cx="877.8" cy="693.3" rx="74.2" ry="74.2"/>
@@ -59,16 +60,16 @@
 	</g>
 	<g id="plus">
 		<g>
-			<line class="st6" x1="2518.3" y1="513.5" x2="2518.3" y2="578.8"/>
-			<line class="st6" x1="2485.7" y1="546.2" x2="2550.9" y2="546.2"/>
+			<line class="st7" x1="2518.3" y1="513.5" x2="2518.3" y2="578.8"/>
+			<line class="st7" x1="2485.7" y1="546.2" x2="2550.9" y2="546.2"/>
 		</g>
 		<g>
-			<line class="st7" x1="1256" y1="1543.6" x2="1256" y2="1632.7"/>
-			<line class="st7" x1="1211.4" y1="1588.1" x2="1300.6" y2="1588.1"/>
+			<line class="st8" x1="1256" y1="1543.6" x2="1256" y2="1632.7"/>
+			<line class="st8" x1="1211.4" y1="1588.1" x2="1300.6" y2="1588.1"/>
 		</g>
 	</g>
 </g>
-<g id="dot" class="st0">
+<g id="dot" class="st3">
 	<g>
 		<circle class="st2" cx="3627.9" cy="257.4" r="14.6"/>
 		<circle class="st2" cx="3627.9" cy="398.8" r="14.6"/>

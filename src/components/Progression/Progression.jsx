@@ -7,6 +7,7 @@ import swal from 'sweetalert';
 import { Button } from '@mui/material';
 import Swirls from '../LearnHTML/CodeBuddy Graphics/Swirls.svg'
 import Confetti from '../LearnHTML/CodeBuddy Graphics/Confetti.svg'
+import { orange } from '@mui/material/colors';
 
 // Routing stuff
 
