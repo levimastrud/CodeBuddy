@@ -45,12 +45,6 @@ function Lesson(props) {
                 this.value = this.value.substring(0, this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
                 this.selectionEnd = s + 1;
             }
-            if (e.keyCode == 13) {
-                e.preventDefault();
-                var s = this.selectionStart;
-                this.value = this.value.substring(0, this.selectionStart) + "\n" + "\t" + this.value.substring(this.selectionEnd);
-                this.selectionEnd = s + 2;
-            }
         }
     }
 
@@ -158,13 +152,14 @@ function Lesson(props) {
     return (
         <Grid
             container
-            sx={{ flexDirection: { xs: "column", md: "row"} }}
-            spacing={12}
-            columns={{ xs: 12, md: 12 }}
-            justifyContent="flex-start"
+            direction={{ xs: "column", sm: "column", md: "row" }}
+            // sx={{ flexDirection: { xs: "column", md: "row" } }}
+            spacing={0}
+            columns={{ xs: 4, sm: 12, md: 12 }}
+            justifyContent="center"
             alignItems="center"
         >
-            <Grid item xs = 'auto' md={3}>
+            <Grid item xs='auto' md={3}>
                 <Item>
                     <img src={Circuit} className='curcuit' />
                     <div className="lesson">
@@ -172,7 +167,7 @@ function Lesson(props) {
                     </div>
                 </Item>
             </Grid>
-            <Grid item xs={0} md = {6}>
+            <Grid item xs='auto' md={5}>
                 <Item>
                     <div className="code">
                         <div className='task-and-cb'>
@@ -183,6 +178,7 @@ function Lesson(props) {
                             }} src={annoyed ? CB_Annoyed : cbStatus}></img>
                             <h2 className="task">{task}</h2>
                         </div>
+                        <h1 className='answer'>{answer ? answer + '!' : ''}</h1>
                         <textarea value={codeBlock} onChange={(e) => {
                             dispatch({ type: 'SET_CODE_BLOCK', payload: e.target.value });
                         }}></textarea>
@@ -205,12 +201,11 @@ function Lesson(props) {
                             }
                             }>Reset</button>
                             {toggleSubmit ? <button onClick={() => checkAnswer(codeBlock)}>Submit</button> : ''}
-                            <h1>{answer ? answer + '!' : ''}</h1>
                         </div>
                     </div>
                 </Item>
             </Grid>
-            <Grid item xs={12} md = {3}>
+            <Grid item xs='auto' md={3}>
                 <Item>
                     <div className="preview">
                         <h1>Preview</h1>

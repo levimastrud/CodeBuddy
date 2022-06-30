@@ -279,7 +279,7 @@ input {
   align-self: flex-start;
   padding: 0 1em 0 1em;
   font-size: 1.5em;
-  width: 20vw;
+  /* width: 20vw; */
   height: 60vh;
 }
 
@@ -293,7 +293,7 @@ input {
 
 textarea {
   height: 25em;
-  width: 40vw;
+  width: 30vw;
   background-color: black;
   resize: none;
   color: var(--blue);
@@ -332,7 +332,7 @@ iframe {
 .preview {
   border-left: 1px solid black;
   height: 60vh;
-  color: black;
+  color: rgb(100, 100, 100);
 }
 
 /* ------------------ QUIZ -------------------------- */
@@ -384,8 +384,12 @@ iframe {
   margin: 5em 0 3em 0;
 }
 
+.answer {
+  margin-top: -30em;
+}
+
 .task {
-  width: 20em;
+  /* width: 20em; */
   overflow: scroll;
   background: var(--white);
   background: linear-gradient(90deg, var(--white) 55%, rgb(255, 255, 247) 70%);
@@ -398,8 +402,8 @@ iframe {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin: 1em;
-  width: 40vw;
+  margin-bottom: -4em;
+  /* width: 40vw; */
 }
 
 /* SCROLL BAR FOR LESSON PAGES */
