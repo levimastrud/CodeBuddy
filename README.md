@@ -1,6 +1,12 @@
 # Code Buddy
 ## An Educational Coding Resource
 
+<img width="833" alt="image" src="https://user-images.githubusercontent.com/66180447/176751305-b1e40592-4fef-4ded-8722-7360355d6fa1.png">
+
+<img width="1358" alt="image" src="https://user-images.githubusercontent.com/66180447/176751508-e1e3298c-5cff-4e36-8373-71e483a73660.png">
+
+<img width="1335" alt="image" src="https://user-images.githubusercontent.com/66180447/176751677-7ee93bf6-f2d5-471e-9491-354005654699.png">
+
 ## To use this project:
 
 ```
