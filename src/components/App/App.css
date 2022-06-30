@@ -325,6 +325,20 @@ textarea {
   right: 0;
 }
 
+.progression, .coursePage {
+  background-image: url('../LearnHTML/CodeBuddy\ Graphics/Swirls.svg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.coursePage {
+  height: 100vh;
+}
+
 .pageButtons button {
   margin: .5em 1em .5em 1em;
   background-color: var(--orange);
@@ -453,9 +467,11 @@ iframe {
 .swirlBG {
   position: absolute;
   top: 0;
-  /* background-image: url('../LearnHTML/CodeBuddy\ Graphics/Swirls.svg'); */
+  background-image: url('../LearnHTML/CodeBuddy\ Graphics/Swirls.svg');
   z-index: -1;
   opacity: 70%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 47%, #daf8ce 100%);
 }
 
 .confetti {

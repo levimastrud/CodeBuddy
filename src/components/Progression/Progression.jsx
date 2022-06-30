@@ -30,7 +30,6 @@ function Progression() {
     <div className='progression'>
       <Nav />
       {progress === 100 ? <img className = 'confetti' src = {Confetti}/> : ''}
-      <img src={Swirls} className='swirlBG' />
       <div>
         <div className='container'>
           <p><i><span className='username'>{progress === 100 ? `${welcomeName} is an HTML jedi`: `${welcomeName} is an HTML padawan`}</span></i></p>

@@ -49,7 +49,7 @@ function Images() {
     Alt - this is the alternate text for the image. If for whatever reason your image doesn’t load properly, the alternate text will describe what should be there.
     `;
 
-    let task = `Create an image with a source of “https://bit.ly/3OFG8PE"” and an alt of “Some cute kittens”`;
+    let task = `Create an image with a source of “https://bit.ly/3OFG8PE" and an alt of “Some cute kittens”`;
 
     let defaultAnswer = `
     <html>
@@ -145,13 +145,13 @@ function Images() {
                     task={task}
                     checkAnswer={checkAnswer}
                 />
-                <button onClick={() => {
+                <button className = 'backButton' onClick={() => {
                     // Stops user from backwards progression
                     history.push('/progression')
                 }
                 }
                 > Back </button>
-                <button onClick={() => {
+                <button className = 'nextButton' onClick={() => {
                     isReady();
                 }}>Next</button>
             </div >

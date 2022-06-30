@@ -45,7 +45,7 @@ function Form() {
     Inputs
     Inside the form tag, we will need inputs for the user to insert their input. The input tag is another tag which does not have a closing tag. It just looks like this <input>
     Type of inputs
-    There are many different types of inputs and they all have their uses! For now we will just use <input type = ‘text’>, but we encourage you to mess around with the other types when you are more comfortable. You can find more documentation on inputs here: https://www.w3schools.com/html/html_form_input_types.asp
+    There are many different types of inputs and they all have their uses! For now we will just use <input type = ‘text’>, but we encourage you to mess around with the other types when you are more comfortable.
     `;
 
     let task = `Create a form with an input inside of it!`;
