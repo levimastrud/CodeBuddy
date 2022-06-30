@@ -8,9 +8,6 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
@@ -78,31 +75,10 @@ import FinalQuizTen from '../LearnHTML/Quiz/FinalQuizTen';
 import FinalQuizFailure from '../LearnHTML/Quiz/FinalQuizFailure';
 import FinalQuizResults from '../LearnHTML/Quiz/FinalQuizResults';
 
-// Theme
-
-import { createTheme } from '@mui/material/styles';
-
-
 import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-
-  const theme = createTheme({
-    status: {
-      danger: '#e53e3e',
-    },
-    palette: {
-      primary: {
-        main: '#f9a03f',
-        darker: '#053e85',
-      },
-      neutral: {
-        main: '#64748B',
-        contrastText: '#fff',
-      },
-    },
-  });
 
   const user = useSelector(store => store.user);
 

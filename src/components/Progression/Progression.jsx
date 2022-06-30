@@ -17,10 +17,12 @@ function Progression() {
   const user = useSelector((store) => store.user);
   let progress = user.recent_topic_completed * 10;
 
-  console.log('progress:', progress)
+  // Capitalizes first letter of name
+
   let welcomeName = user.name ? user.name.charAt(0).toUpperCase() + user.name.slice(1): '';
 
   // Fetches updated user information on page load
+  // Resets answer on load
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
@@ -68,6 +70,8 @@ function Progression() {
         {/* Course List here */}
 
         <div className='topics'>
+
+          {/* Linear progression, locks off not unlocked courses */}
 
           <Link to='/what-is-html'><div className='ready'> <h1> Intro </h1> </div></Link>
 

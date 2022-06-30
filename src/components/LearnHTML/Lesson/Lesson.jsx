@@ -7,9 +7,7 @@ import CB_Tongue from '../CodeBuddy Graphics/CB_Tongue.svg';
 import CB_Evil from '../CodeBuddy Graphics/CB_Evil.svg';
 import CB_Human from '../CodeBuddy Graphics/CB_Human.png';
 import Circuit from '../CodeBuddy Graphics/Curcuit.svg'
-import Container from '@material-ui/core/Container';
 import Grid from '@mui/material/Grid'
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
@@ -25,10 +23,13 @@ function Lesson(props) {
 
     const dispatch = useDispatch();
 
-    // Local state used only to toggle hint
+    // Local state used to toggle hint
 
     const [toggle, setToggle] = useState('hide-hint');
     const [toggleSubmit, setToggleSubmit] = useState('show');
+
+    // Local state for clicking Code Buddy
+
     const [annoyed, setAnnoyed] = useState(false);
     const [cbStatus, setCbStatus] = useState(CB_Default);
     const [clicks, setClicks] = useState(0);
@@ -131,6 +132,8 @@ function Lesson(props) {
         );
     }
 
+    // Generates random number with min and max. Used for CB to stick his tongue out randomly.
+
     function random(min, max) {
         let difference = max - min;
         let rand = Math.random();
@@ -141,6 +144,7 @@ function Lesson(props) {
     }
 
     // useEffect will fetch most up to date answer and code block on load
+    // blinkCB and tongueCB are functions that constantly run and change cbStatus
 
     useEffect(() => {
         dispatch({ type: 'GET_CODE_BLOCK' });
@@ -153,7 +157,6 @@ function Lesson(props) {
         <Grid
             container
             direction={{ xs: "column", sm: "column", md: "row" }}
-            // sx={{ flexDirection: { xs: "column", md: "row" } }}
             spacing={0}
             columns={{ xs: 4, sm: 12, md: 12 }}
             justifyContent="center"
