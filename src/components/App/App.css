@@ -42,6 +42,10 @@ Container
   margin: 3em 1em 1em 3em;
 }
 
+.container2 {
+  margin: 0em 1em 0em 3em;
+}
+
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
@@ -178,11 +182,13 @@ input {
   filter: drop-shadow(0 0 .1em rgb(119, 119, 119));
 }
 
-.ready:hover, .ready-course:hover {
+.ready:hover,
+.ready-course:hover {
   animation: jiggle .7s;
 }
 
-.not-ready:hover, .not-ready-course:hover{
+.not-ready:hover,
+.not-ready-course:hover {
   animation: shake 1s;
 }
 
@@ -279,7 +285,7 @@ input {
   align-items: center;
   flex-direction: column;
   background: rgb(255, 255, 255);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 47%, var(--blue) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 47%, var(--green) 100%);
   height: 100vh;
   /* text-align: center; */
 }
@@ -325,7 +331,14 @@ textarea {
   right: 0;
 }
 
-.progression, .coursePage {
+.html {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 47%, var(--green) 100%);
+  height: 100vh;
+}
+
+.progression,
+.coursePage {
   background-image: url('../LearnHTML/CodeBuddy\ Graphics/Swirls.svg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -366,7 +379,8 @@ iframe {
 
 /* ------------------ QUIZ -------------------------- */
 
-.quiz, .final-quiz {
+.quiz,
+.final-quiz {
   text-align: center;
   display: flex;
   justify-content: center;
@@ -493,26 +507,55 @@ iframe {
 }
 
 @keyframes jiggle {
-  from, to { transform: scale(1, 1); }
-  25% { transform: scale(0.99, 1.02); }
-  50% { transform: scale(1.02, 0.99); }
-  75% { transform: scale(0.99, 1.02); }
+
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+
+  25% {
+    transform: scale(0.99, 1.02);
+  }
+
+  50% {
+    transform: scale(1.02, 0.99);
+  }
+
+  75% {
+    transform: scale(0.99, 1.02);
+  }
 }
 
 @keyframes shake {
-  10%, 90% {
+
+  10%,
+  90% {
     transform: translate3d(-1px, 0, 0);
   }
-  
-  20%, 80% {
+
+  20%,
+  80% {
     transform: translate3d(2px, 0, 0);
   }
 
-  30%, 50%, 70% {
+  30%,
+  50%,
+  70% {
     transform: translate3d(-4px, 0, 0);
   }
 
-  40%, 60% {
+  40%,
+  60% {
     transform: translate3d(4px, 0, 0);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  textarea {
+    width: 90%;
+  }
+
+  iframe {
+    width: 90vw;
   }
 }

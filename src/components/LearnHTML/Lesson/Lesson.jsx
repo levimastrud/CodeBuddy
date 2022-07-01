@@ -46,6 +46,12 @@ function Lesson(props) {
                 this.value = this.value.substring(0, this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
                 this.selectionEnd = s + 1;
             }
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                var s = this.selectionStart;
+                this.value = this.value.substring(0, this.selectionStart) + "\n" + "\t" + this.value.substring(this.selectionEnd);
+                this.selectionEnd = s + 2;
+            }
         }
     }
 
@@ -110,7 +116,7 @@ function Lesson(props) {
                     300
                 )
             },
-            5000
+            15000
         );
     }
 
