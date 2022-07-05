@@ -59,7 +59,7 @@ function OpeningAndClosing() {
     </html>
     `;
 
-    let hint = `Does <header> have a closing and opening tag?`
+    let hint = `Is your code formatted like this: <h1> Text </h1> ?`
 
     const isReady = () => {
         if (answer === 'Correct') {

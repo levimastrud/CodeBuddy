@@ -15,8 +15,8 @@ function CoursesPage() {
             <Nav />
             <div className="courses">
                 <Link to='/progression'><div className='ready-course'> <h1>Learn HTML</h1> <p>Learn the standard markup language used by most of the web today.</p></div></Link>
-                <div className='not-ready-course'> <h1>Learn CSS</h1> </div>
-                <div className='not-ready-course'> <h1>Learn JavaScript</h1> </div>
+                <div className='not-ready-course'> <h1>Learn CSS</h1> <p> Coming soon </p> </div>
+                <div className='not-ready-course'> <h1>Learn JavaScript</h1> <p> Coming soon </p> </div>
             </div>
         </div>
     );
